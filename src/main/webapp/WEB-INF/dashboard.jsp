@@ -22,7 +22,7 @@
 		class="card container d-flex col-12 mx-auto justify-content-between mt-4 mb-4 p-4">
 		<div class="d-flex justify-content-between">
 			<div class="my-2">
-				<h1>Dev Projects Tracker
+				<h1>Project Dashboard
 				</h1>
 				<h4>Welcome,<c:out value="${loggedInUser.firstName}" /></h4>	
 				<br>
@@ -102,9 +102,13 @@
 					</c:forEach>
 				</tbody>
 			</table>
-			<div class="row row-cols-1 row-cols-md-3 g-4">
+<!-- 			<div class="d-inline-flex row row-cols-1 row-cols-md-3 g-4">
 				<div class="col">
-					<div class="card h-100">
+					<div class="card h-100"> -->
+					<div class="container h-100">
+    			<div class="row align-items-center h-100">
+        			<div class="col-6 mx-auto">
+          				<div class="card h-100 border-primary justify-content-center">
 						<c:forEach items="${projects}" var="project">
 							<!-- <img src="..." class="card-img-top" alt="..."> -->
 							<h5 class="card-title text-center my-3">
@@ -112,24 +116,13 @@
 										value="${project.title}" /></a>
 							</h5>
 							<div class="card-body">
-								<p>
-									<strong> Description:</strong> ${project.description}
-								</p>
-								<p>
-									<strong> Owner:</strong> ${project.leader.firstName}
-									${project.leader.lastName}
-								</p>
-								<p>
-									<strong> Language:</strong> ${project.language}
-								</p>
-								<p>
-									<strong> Deploy Date:</strong> ${project.dueDate}
-								</p>
+								<p><strong> Description:</strong> ${project.description}</p>
+								<p><strong> Owner:</strong> ${project.leader.firstName} ${project.leader.lastName}</p>
+								<p><strong> Language:</strong> ${project.language}</p>
+								<p><strong> Deploy Date:</strong> ${project.dueDate}</p>
 							</div>
 							<div class="card-footer">
-								<small class="text-muted">Last updated <fmt:formatDate
-										type="both" dateStyle="medium" timeStyle="short"
-										value="${project.createdAt}" /></small>
+								<small class="text-muted">Last updated <fmt:formatDate type="both" dateStyle="medium" timeStyle="short" value="${project.createdAt}" /></small>
 							</div>
 						</c:forEach>
 					</div>

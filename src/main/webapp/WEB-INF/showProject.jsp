@@ -68,7 +68,7 @@
                 <div class="d-flex col-9">
                 	<c:if test="${project.projectJoiners.contains(userLoggedIn) || project.leader.id == userLoggedIn.id }">
                 		<a href="/projects/${project.id}/edit" class="btn btn-outline-warning mx-1">Edit Project</a>
-                		<a href="/projects/${id}/tasks" class="btn btn-outline-primary">See tasks</a>
+                		<a href="/projects/${id}/tasks" class="btn btn-outline-primary">View/Add Tasks</a>
 
                 	</c:if>
               	</div>
