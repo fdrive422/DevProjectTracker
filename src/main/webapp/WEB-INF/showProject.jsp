@@ -51,7 +51,7 @@
                 		<h5>Phase:</h5>
                 	</div>
                 	<div class="col-6">
-                		${project.phase}
+                		${project.phase} Phase, as of <fmt:formatDate type="both" dateStyle="medium" timeStyle="short" value="${project.createdAt}" />
                 	</div>
                 </div>
                 <div class="row g-3 my-3">

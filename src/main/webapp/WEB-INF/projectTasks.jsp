@@ -69,8 +69,7 @@
 						<td>${task.ticket}</td>
 						<td><c:out value="${task.creator.firstName}" /></td>
 						<td><fmt:formatDate type="both" dateStyle="medium" timeStyle="short" value="${task.createdAt}" /></td>
-						<td class="form-check">
-  							<input class="form-check-input" type="checkbox" value="" id="formCheckDefault">
+						<td> <input class="form-check-input" type="checkbox" value="" id="formCheckDefault">
  							<label class="form-check-label" for="formCheckDefault"></label>Done? </td>
 					<tr>
 				</c:forEach>

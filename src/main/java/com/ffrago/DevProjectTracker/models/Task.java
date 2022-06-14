@@ -27,8 +27,8 @@ public class Task {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    @NotEmpty(message="Ticket is required!")
-    @Size(min=2, max=200, message="Ticket must be be at least 2 characters")
+    @NotEmpty(message="Task description required!")
+    @Size(min=5, max=200, message="Task description must be be at least 5 characters")
     private String ticket;
     
     @Column(updatable=false)
