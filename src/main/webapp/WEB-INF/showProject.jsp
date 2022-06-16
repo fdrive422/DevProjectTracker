@@ -8,19 +8,61 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<!-- YOUR own local CSS -->
+<link rel="stylesheet" href="../views/css/main.css" />
+<!-- Bootstrap -->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+	crossorigin="anonymous">
+<script src="js/app.js" type="text/javascript"></script>
 <title>Show Project</title>
 </head>
-<body>
+<body class="body-css">
 
-	<div class="container border rounded mt-4 p-4">
+	<div class="blurred-box text-center " id="myHeader">
+		<div
+			class="p-1 blurred-box d-flex justify-content-between align-items-center">
+
+			<p class="navbar-brand">
+				<strong>Developer Project Tracker for
+					${loggedInUser.firstName}</strong>
+			</p>
+			<p class="navbar-brand">
+				<em>.....</em>
+			</p>
+		</div>
+		<div class="mb-3 text-center">
+			<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+				<button class="navbar-toggler" type="button" data-toggle="collapse"
+					data-target="#navbarNav" aria-controls="navbarNav"
+					aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav">
+						<li class="m-1 nav-item"><a class="nav-link"
+							href="/dashboard">DASHBOARD </a></li>
+						<li class="m-1 nav-item"><a class="nav-link"
+							href="/projects/new">ADD PROJECT</a></li>
+						<li class="m-1 nav-item"><a class="nav-link" href="/">SIGN
+								OUT</a></li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+	</div>
+
+
+	<div class="card container rounded mt-4 p-4 bg-transparent">
 		<div class="d-flex  mx-auto justify-content-between mb-3">
 	    	<h1 class="text-dark">Project Details</h1>
-	        <p>
+<!-- 	        <p>
 	        	<a href="/projects" class="btn btn-outline-secondary">Back to Dashboard</a>
-	        </p>
+	        </p> -->
 	   	</div>
-	   	<div class="border rounded p-4 bg-light mx-auto mb-4">
+	   	<div class="p-4 mx-auto mb-4 bg-transparent">
         	
                 <div class="row g-3 my-3">
                 	<div class="col-3">
@@ -67,10 +109,9 @@
                 </div>
                 <div class="d-flex col-9">
                 	<c:if test="${project.projectJoiners.contains(userLoggedIn) || project.leader.id == userLoggedIn.id }">
-                		<a href="/projects/${project.id}/edit" class="btn btn-outline-warning mx-1">Edit Project</a>
-                		<a href="/projects/${id}/tasks" class="btn btn-outline-primary">View/Add Tasks</a>
-
+                		<a href="/projects/${project.id}/edit" class="btn btn-outline-dark mx-2">Edit Project</a>
                 	</c:if>
+                		<a href="/projects/${id}/tasks" class="btn btn-outline-dark">View / Add Tasks</a>
               	</div>
      	</div>
 	</div>

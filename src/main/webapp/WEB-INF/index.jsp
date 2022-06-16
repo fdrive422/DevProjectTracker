@@ -8,20 +8,28 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<!-- YOUR own local CSS -->
+<link rel="stylesheet" href="../views/css/main.css" />
+<!-- Bootstrap -->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+	crossorigin="anonymous">
+<script src="js/app.js" type="text/javascript"></script>
 <title>Registration and Login</title>
 </head>
-<body>
+<body class="body-css">
 
-	<div class="card container my-5">
+	<div class="card container bg-transparent my-5">
 		<div class="text-center">
-			<h1 class="text-primary">Developer Project Tracker</h1>
+			<h1 class="text-dark">Developer Project Tracker</h1>
 			<h3>Track that status of a developers project through deployment</h3>
 		</div>
         <div class="row justify-content-around my-2 gy-3">
             <div class="col-12 col-md-4">
                 <form:form action="/register" method="post" modelAttribute="newUser" class="p-4">
-                    <h2 class="text-primary">Register</h2>
+                    <h2 class="text-register">Register</h2>
                     <form:label path="firstName" class="py-2">First Name:</form:label>
                     <form:errors path="firstName" class="text-danger"/>
                     <form:input path="firstName" type="text" class="form-control"/>
@@ -38,13 +46,13 @@
                     <form:errors path="confirm" class="text-danger"/>
                     <form:password path="confirm" class="form-control"/>
                     <p class="pt-3">
-                        <input type="submit" value="Register" class="btn btn-primary">
+                        <input type="submit" value="Register" class="btn btn-outline-dark">
                     </p>
                 </form:form>
             </div>
             <div class="col-12 col-md-4">
                 <form:form action="/login" method="post" modelAttribute="newLogin" class="p-4">
-                    <h2 class="text-primary">Login</h2>
+                    <h2 class="text-dark">Login</h2>
                     <form:label path="userEmail" class="py-2">Email:</form:label>
                     <form:errors path="userEmail" class="text-danger"/>
                     <form:input path="userEmail" type="email" class="form-control"/>
@@ -52,7 +60,7 @@
                     <form:errors path="userPassword" class="text-danger"/>
                     <form:password path="userPassword" class="form-control"/>
                     <p class="pt-3">
-                        <input type="submit" value="Login" class="btn btn-success">
+                        <input type="submit" value="Login" class="btn btn-outline-dark">
                     </p>
                 </form:form>
             </div>

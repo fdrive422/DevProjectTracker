@@ -8,16 +8,57 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<!-- for Bootstrap CSS -->
+<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
+
+<!-- for Boostrap CSS specifically for the table -->
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
 	rel="stylesheet"
 	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
 	crossorigin="anonymous">
+
+<!-- YOUR own local CSS -->
+<link rel="stylesheet" href="/../views/css/main.css"/>
 <title>Project Tasks</title>
 </head>
-<body>
+<body class="body-css" >
 
-	<div class="container border rounded mt-4 p-4">
+	<div class="blurred-box text-center " id="myHeader">
+		<div
+			class="p-1 blurred-box d-flex justify-content-between align-items-center">
+
+			<p class="navbar-brand">
+				<strong>Developer Project Tracker for
+					${loggedInUser.firstName}</strong>
+			</p>
+			<p class="navbar-brand">
+				<em>.....</em>
+			</p>
+		</div>
+		<div class="mb-3 text-center">
+			<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+				<button class="navbar-toggler" type="button" data-toggle="collapse"
+					data-target="#navbarNav" aria-controls="navbarNav"
+					aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav">
+						<li class="m-1 nav-item"><a class="nav-link"
+							href="/dashboard">DASHBOARD </a></li>
+						<li class="m-1 nav-item"><a class="nav-link disabled"
+							href="/projects/new">ADD PROJECT</a></li>
+						<li class="m-1 nav-item"><a class="nav-link" href="/">SIGN
+								OUT</a></li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+	</div>
+
+
+	<div class="card container mt-4 p-4 bg-transparent">
 		<div class="d-flex col-12 mx-auto justify-content-between">
 			<div class="my-3">
 				<h1>Project Task</h1>
@@ -26,16 +67,16 @@
 				<h5>Project Owner: <c:out value="${project.leader.firstName}" /></h5>
 			</div>
 			<div class="my-2 row align-items-center">
-				<p><a href="/projects" class="btn btn-outline-secondary mx-1">Return to Dashboard</a> </p>
+<!-- 				<p><a href="/projects" class="btn btn-outline-secondary mx-1">Return to Dashboard</a> </p> -->
 			</div>
 		</div>
 		<div class="col-12 mx-auto">
 			<form:form action="/projects/${id}/tasks/create" method="post"
-				modelAttribute="newTask" class="border rounded p-4 bg-light text-primary">
+				modelAttribute="newTask" class="p-4 bg-transparent text-dark">
 				<div class="form-group">
 					<form:label path="ticket" class="">Add a task / feature to project scope: </form:label>
 					<form:errors path="ticket" class="text-danger" />
-					<form:textarea path="ticket" class="form-control" />
+					<form:textarea path="ticket" class="form-control bg-light" />
 				</div>
 				<div>
 					<form:errors path="creator" class="error" />
@@ -49,7 +90,7 @@
 				</div>
 
 				<p class="d-flex col-9 my-2">
-					<input type="submit" value="Add Task" class="btn btn-outline-primary">
+					<input type="submit" value="Add Task" class="btn btn-outline-dark">
 				</p>
 			</form:form>
 		</div>
@@ -61,7 +102,7 @@
 						<th>Task / Feature Description</th>
 						<th>Added By</th>
 						<th>Date Added</th>
-						<th>Status</th>
+						<th>Action</th>
 					</tr>
 				<tbody>
 					<c:forEach items="${tasks}" var="task">
@@ -69,8 +110,17 @@
 						<td>${task.ticket}</td>
 						<td><c:out value="${task.creator.firstName}" /></td>
 						<td><fmt:formatDate type="both" dateStyle="medium" timeStyle="short" value="${task.createdAt}" /></td>
-						<td> <input class="form-check-input" type="checkbox" value="" id="formCheckDefault">
- 							<label class="form-check-label" for="formCheckDefault"></label>Done? </td>
+						<td> 
+							<c:if
+								test="${task.creator.id == loggedInUser.id || project.leader.id == loggedInUser.id}">
+									<form:form action="/projects/${project.id}/tasks/${task.id}/delete"
+									method="delete">
+									<!-- <input type="submit" value="Completed" class="btn btn-danger mb-3"> -->
+									<input type="submit" class="form-check-input" type="checkbox" value="" id="formCheckDefault">
+ 									<label class="form-check-label" for="formCheckDefault"></label>Complete 
+									</form:form>
+							</c:if>
+							</td>
 					<tr>
 				</c:forEach>
 				</tbody>
