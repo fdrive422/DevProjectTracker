@@ -21,9 +21,9 @@
 </head>
 <body class="body-css">
 
-	<div class="blurred-box text-center ">
+	<div class="text-center ">
 		<div
-			class="p-1 blurred-box d-flex justify-content-between align-items-center">
+			class="p-3 d-flex justify-content-between align-items-center">
 
 <%-- 			<p class="navbar-brand">
 				<strong>Developer Project Tracker for
@@ -33,7 +33,7 @@
 				<em>.....</em>
 			</p> --%>
 		</div>
-		<div class="mb-3 text-center">
+		<div class="mx-4 mb-3 text-center nav">
 			<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
 				<button class="navbar-toggler" type="button" data-toggle="collapse"
 					data-target="#navbarNav" aria-controls="navbarNav"
@@ -52,6 +52,7 @@
 				</div>
 			</nav>
 		</div>
+		
 	</div>
 
 	<div
@@ -64,7 +65,7 @@
 				<h4>Team Projects</h4>
 			</div>
 		</div>
-		<table class="table table-striped table-bg-transparent my-3">
+		<table class="table table-bg-transparent my-3">
 			<thead>
 				<tr class="bg-transparent">
 					<th>ID</th>
@@ -75,7 +76,7 @@
 				</tr>
 			<tbody>
 				<c:forEach items="${projects}" var="project">
-					<tr class="bg-transparent"">
+					<tr class="bg-transparent text-dark">
 						<td>${project.id}</td>
 						<td><a href="projects/${project.id}"><c:out
 									value="${project.title}" /></a></td>
@@ -97,7 +98,7 @@
 
 		<div class="col-12 mx-auto">
 			<h4 class="my-3">Your Projects</h4>
-			<table class="table table-striped table-bg-transparent my-3">
+			<table class="table table-bg-transparent my-3">
 				<thead>
 					<tr class="bg-transparent">
 						<th>ID</th>

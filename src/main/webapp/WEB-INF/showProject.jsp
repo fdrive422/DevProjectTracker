@@ -21,11 +21,11 @@
 </head>
 <body class="body-css">
 
-	<div class="blurred-box text-center " id="myHeader">
+	<div class="text-center">
 		<div
-			class="p-1 blurred-box d-flex justify-content-between align-items-center">
-
-<%-- 			<p class="navbar-brand">
+			class="p-3  d-flex justify-content-between align-items-center">
+<%-- 
+			<p class="navbar-brand">
 				<strong>Developer Project Tracker for
 					${loggedInUser.firstName}</strong>
 			</p>
@@ -33,7 +33,7 @@
 				<em>.....</em>
 			</p> --%>
 		</div>
-		<div class="mb-3 text-center">
+		<div class="mx-4 mb-3 text-center nav">
 			<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
 				<button class="navbar-toggler" type="button" data-toggle="collapse"
 					data-target="#navbarNav" aria-controls="navbarNav"

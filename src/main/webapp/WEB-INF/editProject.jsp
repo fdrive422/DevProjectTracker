@@ -42,9 +42,9 @@
 <body class="body-css">
 <body class="body-css">
 
-	<div class="text-center " id="myHeader">
+	<div class="text-center">
 		<div
-			class="p-1 blurred-box d-flex justify-content-between align-items-center">
+			class="p-3  d-flex justify-content-between align-items-center">
 <%-- 
 			<p class="navbar-brand">
 				<strong>Developer Project Tracker for
@@ -54,7 +54,7 @@
 				<em>.....</em>
 			</p> --%>
 		</div>
-		<div class="mb-3 text-center">
+		<div class="mx-4 mb-3 text-center nav">
 			<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
 				<button class="navbar-toggler" type="button" data-toggle="collapse"
 					data-target="#navbarNav" aria-controls="navbarNav"
@@ -141,6 +141,7 @@
 										<c:when test="${loggedInUser.id == project.leader.id}">
 											<a href="/projects/${project.id}/edit" class="btn btn-outline-dark mx-1">Edit Project</a>
 											<form:form action="/projects/${project.id}/delete" method="delete">
+											<input type="hidden" name="_method" value="delete">
 												<input type="submit" value="Delete" class="btn btn-outline-dark">
 											</form:form>
 										</c:when>
