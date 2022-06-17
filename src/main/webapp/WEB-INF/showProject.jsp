@@ -25,13 +25,13 @@
 		<div
 			class="p-1 blurred-box d-flex justify-content-between align-items-center">
 
-			<p class="navbar-brand">
+<%-- 			<p class="navbar-brand">
 				<strong>Developer Project Tracker for
 					${loggedInUser.firstName}</strong>
 			</p>
 			<p class="navbar-brand">
 				<em>.....</em>
-			</p>
+			</p> --%>
 		</div>
 		<div class="mb-3 text-center">
 			<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
@@ -55,14 +55,14 @@
 	</div>
 
 
-	<div class="card container rounded mt-4 p-4 bg-transparent">
-		<div class="d-flex  mx-auto justify-content-between mb-3">
+	<div class="card container bg-transparent mt-4 mb-4 p-4">
+		<div class="d-flex col-12 mx-auto justify-content-between">
 	    	<h1 class="text-dark">Project Details</h1>
 <!-- 	        <p>
-	        	<a href="/projects" class="btn btn-outline-secondary">Back to Dashboard</a>
+	        	<a href="/projects" class=""></a>
 	        </p> -->
 	   	</div>
-	   	<div class="p-4 mx-auto mb-4 bg-transparent">
+	   	<div class="my-2 row align-items-center">
         	
                 <div class="row g-3 my-3">
                 	<div class="col-3">

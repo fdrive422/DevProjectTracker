@@ -10,14 +10,12 @@
 <meta charset="UTF-8">
 <!-- for Bootstrap CSS -->
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
-
 <!-- for Boostrap CSS specifically for the table -->
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
 	rel="stylesheet"
 	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
 	crossorigin="anonymous">
-
 <!-- YOUR own local CSS -->
 <link rel="stylesheet" href="/../views/css/main.css"/>
 <title>Project Tasks</title>
@@ -27,14 +25,13 @@
 	<div class="blurred-box text-center " id="myHeader">
 		<div
 			class="p-1 blurred-box d-flex justify-content-between align-items-center">
-
-			<p class="navbar-brand">
+<%-- 			<p class="navbar-brand">
 				<strong>Developer Project Tracker for
 					${loggedInUser.firstName}</strong>
 			</p>
 			<p class="navbar-brand">
 				<em>.....</em>
-			</p>
+			</p> --%>
 		</div>
 		<div class="mb-3 text-center">
 			<nav class="navbar navbar-expand-lg navbar-light bg-transparent">

@@ -42,17 +42,17 @@
 <body class="body-css">
 <body class="body-css">
 
-	<div class="blurred-box text-center " id="myHeader">
+	<div class="text-center " id="myHeader">
 		<div
 			class="p-1 blurred-box d-flex justify-content-between align-items-center">
-
+<%-- 
 			<p class="navbar-brand">
 				<strong>Developer Project Tracker for
 					${loggedInUser.firstName}</strong>
 			</p>
 			<p class="navbar-brand">
 				<em>.....</em>
-			</p>
+			</p> --%>
 		</div>
 		<div class="mb-3 text-center">
 			<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
@@ -122,12 +122,35 @@
 					<form:input type="hidden" path="leader" value="${loggedInUser.id}"
 						class="form-control" />
 				</div>
-				<input type="submit" value="Submit Update"
-					class="btn btn-outline-success mx-1 my-3">
+				<input type="submit" value="Update"
+					class="btn btn-outline-dark mx-1 my-3">
 				<form:form action="/projects/${project.id}/delete" method="delete">
-					<input type="submit" value="Delete Project"
+					<input type="submit" value="Delete"
 						class="btn btn-outline-danger mx-1">
 				</form:form>
+					<c:forEach items="${projects}" var="project">
+						<tr class="bg-transparent">
+							<c:if
+								test="${project.projectJoiners.contains(userLoggedIn) || loggedInUser.id == project.leader.id}">
+								<td>${project.id}</td>
+								<td><a href="projects/${project.id}"><c:out value="${project.title}" /></a></td>
+								<td>${project.leader.firstName}</td>
+								<td>${project.dueDate}</td>
+								<td class="d-flex justify-content-center">
+									<c:choose>
+										<c:when test="${loggedInUser.id == project.leader.id}">
+											<a href="/projects/${project.id}/edit" class="btn btn-outline-dark mx-1">Edit Project</a>
+											<form:form action="/projects/${project.id}/delete" method="delete">
+												<input type="submit" value="Delete" class="btn btn-outline-dark">
+											</form:form>
+										</c:when>
+										<c:otherwise>
+											<a href="/projects/${project.id}/leave">Leave Team</a>
+										</c:otherwise>
+									</c:choose></td>
+							</c:if>
+						</tr>
+					</c:forEach>
 			</form:form>
 		</div>
 	</div>

@@ -25,13 +25,13 @@
 		<div
 			class="p-1 blurred-box d-flex justify-content-between align-items-center">
 
-			<p class="navbar-brand">
+<%-- 			<p class="navbar-brand">
 				<strong>Developer Project Tracker for
 					${loggedInUser.firstName}</strong>
 			</p>
 			<p class="navbar-brand">
 				<em>.....</em>
-			</p>
+			</p> --%>
 		</div>
 		<div class="mb-3 text-center">
 			<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
@@ -70,7 +70,7 @@
 					<th>ID</th>
 					<th>Project</th>
 					<th>Team Lead</th>
-					<th>Due Date</th>
+					<th>Deploy Date</th>
 					<th>Actions</th>
 				</tr>
 			<tbody>
@@ -118,9 +118,9 @@
 								<td class="d-flex justify-content-center">
 									<c:choose>
 										<c:when test="${loggedInUser.id == project.leader.id}">
-											<a href="/projects/${project.id}/edit" class="mx-1">Edit Project</a>
+											<a href="/projects/${project.id}/edit" class="btn btn-outline-dark mx-1"> Edit</a>
 											<form:form action="/projects/${project.id}/delete" method="delete">
-												<input type="submit" value="Delete" class="btn btn-danger">
+												<input type="submit" value="Delete" class="btn btn-outline-dark">
 											</form:form>
 										</c:when>
 										<c:otherwise>
@@ -132,268 +132,241 @@
 					</c:forEach>
 				</tbody>
 			</table>
-		
 		</div>
+	</div>
+
+<!-- HORIZANTAL CARDS -->
+<div class="container bg-transparent py-3">
+  <div class="title h1">Project Summary Cards</div>
+  <!-- Card Start -->
+	<c:forEach items="${projects}" var="project">
+	<c:if test="${project.projectJoiners.contains(userLoggedIn) || loggedInUser.id == project.leader.id}">
+  <div class="card bg-transparent mb-4 p-4">
+    <div class="row ">
+      <div class="col-md-7 px-3">
+        <div class="card-block px-3">
+          <h4 class="card-title"> Project Title: ${project.title}</h4>
+          <br>
+          <p class="card-text"> <strong>Description of Project:</strong> ${project.description}</p>
+          <p class="card-text"> <strong>Project Lead:</strong> ${project.leader.firstName}</p>
+          <p class="card-text"> <strong>Program Language:</strong> ${project.language} </p>
+          <p class="card-text"> <strong>Delpoyment Date:</strong> ${project.dueDate}</p>
+          <br>
+          <a href="/projects/${id}/project" class="mt-auto btn btn-primary  ">Read More</a>
+        </div>
+      </div>
+      <!-- Carousel start -->
+      <div class="col-md-5">
+      
+        <div id="CarouselTest" class="carousel slide" data-ride="carousel">
+          <img class="card-block" src="../views/img/DevProj3.png" alt="">
+          <ol class="carousel-indicators">
+            <li data-target="#CarouselTest" data-slide-to="0" class="active"></li>
+            <li data-target="#CarouselTest" data-slide-to="1"></li>
+            <li data-target="#CarouselTest" data-slide-to="2"></li>
+
+          </ol>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img class="d-block" src="../views/img/DevProj1.jpeg" alt="">
+            </div>
+            <div class="carousel-item">
+              <img class="d-block" src="../views/img/DevProj2.png" alt="">
+            </div>
+            <div class="carousel-item">
+              <img class="d-block" src="../views/img/DevProj3.png" alt="">
+            </div>
+            <a class="carousel-control-prev" href="#CarouselTest" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+            <a class="carousel-control-next" href="#CarouselTest" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+          </div>
+        </div>
+      </div>
+      <!-- End of carousel -->
+    </div>
+  </div>
+  </c:if>
+      </c:forEach>
+  <!-- End of card -->
+
+</div>
+
+<%-- <div class="container">
+  <div class="card float-left bg-transparent">
+    <div class="row ">
+
+      <div class="col-sm-7">
+        <div class="card-block">
+          <!--           <h4 class="card-title">Small card</h4> -->
+          <p>Wetgple text to build your own card.</p>
+          <p>Change around the content for awsomenes</p>
+          <a href="/projects/${id}/tasks" class="btn btn-primary btn-sm">Read More</a>
+        </div>
+      </div>
+
+      <div class="col-sm-5">
+        <img class="d-block w-100" src="../views/img/DevProj2.png" alt="">
+      </div>
+    </div>
+  </div>
+
+ 
+    <div class="card float-right bg-transparent">
+      <div class="row">
+        <div class="col-sm-5">
+          <img class="d-block w-100" src="../views/img/DevProj3.png" alt="">
+        </div>
+        <div class="col-sm-7">
+          <div class="card-block">
+            <!--           <h4 class="card-title">Small card</h4> -->
+            <p>Copy paste the HTML and CSS.</p>
+            <p>Change around the content for awsomenes</p>
+            <br>
+            <a href="#" class="btn btn-primary btn-sm float-right">Read More</a>
+          </div>
+        </div>
+ 
+      </div>
+    </div>
+  </div> --%>
+ 
+<!--  <br>
+<br>
+<section class="wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col text-center mb-5">
+         <h1 class="display-4">Bootstrap 4 Cards With Background Image</h1>
+  <p class="lead">Lorem ipsum dolor sit amet at enim hac integer volutpat maecenas pulvinar. </p>
+      </div>
+    </div>
+  <div class="row">
+ <div class="col-sm-12 col-md-6 col-lg-4 mb-4"><div class="card text-white card-has-bg click-col" style="background-image:url('https://source.unsplash.com/600x900/?tech,street');">
+         <img class="card-img d-none" src="https://source.unsplash.com/600x900/?tech,street" alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?">
+        <div class="card-img-overlay d-flex flex-column">
+         <div class="card-body">
+            <small class="card-meta mb-2">Thought Leadership</small>
+            <h4 class="card-title mt-0 "><a class="text-white" herf="#">Goverment Lorem Ipsum Sit Amet Consectetur dipisi?</a></h4>
+           <small><i class="far fa-clock"></i> October 15, 2020</small>
+          </div>
+          <div class="card-footer">
+           <div class="media">
+  <img class="mr-3 rounded-circle" src="https://assets.codepen.io/460692/internal/avatars/users/default.png" alt="Generic placeholder image" style="max-width:50px">
+  <div class="media-body">
+    <h6 class="my-0 text-white d-block">Oz Coruhlu</h6>
+     <small>Director of UI/UX</small>
+  </div>
+</div>
+          </div>
+        </div>
+      </div></div>
+     <div class="col-sm-12 col-md-6 col-lg-4 mb-4"><div class="card text-white card-has-bg click-col" style="background-image:url('https://source.unsplash.com/600x900/?tree,nature');">
+         <img class="card-img d-none" src="https://source.unsplash.com/600x900/?tree,nature" alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?">
+        <div class="card-img-overlay d-flex flex-column">
+         <div class="card-body">
+            <small class="card-meta mb-2">Thought Leadership</small>
+            <h4 class="card-title mt-0 "><a class="text-white" herf="#">Goverment Lorem Ipsum Sit Amet Consectetur dipisi?</a></h4>
+           <small><i class="far fa-clock"></i> October 15, 2020</small>
+          </div>
+          <div class="card-footer">
+           <div class="media">
+  <img class="mr-3 rounded-circle" src="https://assets.codepen.io/460692/internal/avatars/users/default.png" alt="Generic placeholder image" style="max-width:50px">
+  <div class="media-body">
+    <h6 class="my-0 text-white d-block">Oz Coruhlu</h6>
+     <small>Director of UI/UX</small>
+  </div>
+</div>
+          </div>
+        </div>
+      </div></div>
+  <div class="col-sm-12 col-md-6 col-lg-4 mb-4"><div class="card text-white card-has-bg click-col" style="background-image:url('https://source.unsplash.com/600x900/?computer,design');">
+         <img class="card-img d-none" src="https://source.unsplash.com/600x900/?computer,design" alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?">
+        <div class="card-img-overlay d-flex flex-column">
+         <div class="card-body">
+            <small class="card-meta mb-2">Thought Leadership</small>
+            <h4 class="card-title mt-0 "><a class="text-white" herf="#">Goverment Lorem Ipsum Sit Amet Consectetur dipisi?</a></h4>
+           <small><i class="far fa-clock"></i> October 15, 2020</small>
+          </div>
+          <div class="card-footer">
+           <div class="media">
+  <img class="mr-3 rounded-circle" src="https://assets.codepen.io/460692/internal/avatars/users/default.png" alt="Generic placeholder image" style="max-width:50px">
+  <div class="media-body">
+    <h6 class="my-0 text-white d-block">Oz Coruhlu</h6>
+     <small>Director of UI/UX</small>
+  </div>
+</div>
+          </div>
+        </div>
+      </div></div>
+   
+    <div class="col-sm-12 col-md-6 col-lg-4 mb-4"><div class="card text-white card-has-bg click-col" style="background-image:url('https://source.unsplash.com/600x900/?tech,street');">
+         <img class="card-img d-none" src="https://source.unsplash.com/600x900/?tech,street" alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?">
+        <div class="card-img-overlay d-flex flex-column">
+         <div class="card-body">
+            <small class="card-meta mb-2">Thought Leadership</small>
+            <h4 class="card-title mt-0 "><a class="text-white" herf="#">Goverment Lorem Ipsum Sit Amet Consectetur dipisi?</a></h4>
+           <small><i class="far fa-clock"></i> October 15, 2020</small>
+          </div>
+          <div class="card-footer">
+           <div class="media">
+  <img class="mr-3 rounded-circle" src="https://assets.codepen.io/460692/internal/avatars/users/default.png" alt="Generic placeholder image" style="max-width:50px">
+  <div class="media-body">
+    <h6 class="my-0 text-white d-block">Oz Coruhlu</h6>
+     <small>Director of UI/UX</small>
+  </div>
+</div>
+          </div>
+        </div>
+      </div></div>
+     <div class="col-sm-12 col-md-6 col-lg-4 mb-4"><div class="card text-white card-has-bg click-col" style="background-image:url('https://source.unsplash.com/600x900/?tree,nature');">
+         <img class="card-img d-none" src="https://source.unsplash.com/600x900/?tree,nature" alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?">
+        <div class="card-img-overlay d-flex flex-column">
+         <div class="card-body">
+            <small class="card-meta mb-2">Thought Leadership</small>
+            <h4 class="card-title mt-0 "><a class="text-white" herf="#">Goverment Lorem Ipsum Sit Amet Consectetur dipisi?</a></h4>
+           <small><i class="far fa-clock"></i> October 15, 2020</small>
+          </div>
+          <div class="card-footer">
+           <div class="media">
+  <img class="mr-3 rounded-circle" src="https://assets.codepen.io/460692/internal/avatars/users/default.png" alt="Generic placeholder image" style="max-width:50px">
+  <div class="media-body">
+    <h6 class="my-0 text-white d-block">Oz Coruhlu</h6>
+     <small>Director of UI/UX</small>
+  </div>
+</div>
+          </div>
+        </div>
+      </div></div>
+  <div class="col-sm-12 col-md-6 col-lg-4 mb-4"><div class="card text-white card-has-bg click-col" style="background-image:url('https://source.unsplash.com/600x900/?computer,design');">
+         <img class="card-img d-none" src="https://source.unsplash.com/600x900/?computer,design" alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?">
+        <div class="card-img-overlay d-flex flex-column">
+         <div class="card-body">
+            <small class="card-meta mb-2">Thought Leadership</small>
+            <h4 class="card-title mt-0 "><a class="text-white" herf="#">Goverment Lorem Ipsum Sit Amet Consectetur dipisi?</a></h4>
+           <small><i class="far fa-clock"></i> October 15, 2020</small>
+          </div>
+          <div class="card-footer">
+           <div class="media">
+  <img class="mr-3 rounded-circle" src="https://assets.codepen.io/460692/internal/avatars/users/default.png" alt="Generic placeholder image" style="max-width:50px">
+  <div class="media-body">
+    <h6 class="my-0 text-white d-block">Oz Coruhlu</h6>
+     <small>Director of UI/UX</small>
+  </div>
+</div>
+          </div>
+        </div>
+      </div></div>
+  
+</div>
+  
+</div>
+</section>
+ -->
 	
-	</div>
-
-	<!-- 		// cards // -->
-
-
-	<section class="wrapper">
-		<div class="container">
-			<div class="row">
-				<div class="container h-100 bg-transparent">
-					<div class="row align-items-between h-100">
-						<div class="col-6 mx-auto">
-							<div class="card h-100 justify-content-between bg-transparent">
-								<c:forEach items="${projects}" var="project">
-									<!-- <img src="..." class="card-img-top" alt="..."> -->
-									<h5 class="card-title text-center my-3">
-										Project: <a href="projects/${project.id}"><c:out
-												value="${project.title}" /></a>
-									</h5>
-									<div class="card-body">
-										<p>
-											<strong> Description:</strong> ${project.description}
-										</p>
-										<p>
-											<strong> Owner:</strong> ${project.leader.firstName}
-											${project.leader.lastName}
-										</p>
-										<p>
-											<strong> Language:</strong> ${project.language}
-										</p>
-										<p>
-											<strong> Deploy Date:</strong> ${project.dueDate}
-										</p>
-									</div>
-									<div class="card-footer">
-										<small class="text-muted">Last updated <fmt:formatDate
-												type="both" dateStyle="medium" timeStyle="short"
-												value="${project.createdAt}" /></small>
-									</div>
-								</c:forEach>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-<%-- 
-	<section class="wrapper">
-		<div class="container">
-			<div class="row">
-				<div class="col text-center mb-5">
-					<h1 class="display-4">Bootstrap 4 Cards With Background Image</h1>
-					<p class="lead">Lorem ipsum dolor sit amet at enim hac integer
-						volutpat maecenas pulvinar.</p>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-sm-12 col-md-6 col-lg-4 mb-4">
-					<div class="card text-white card-has-bg click-col"
-						style="background-image: url('https://source.unsplash.com/600x900/?tech,street');">
-						<img class="card-img d-none"
-							src="https://source.unsplash.com/600x900/?tech,street"
-							alt="">
-						<div class="card-img-overlay d-flex flex-column">
-							<div class="card-body">
-							<c:forEach items="${projects}" var="project">
-								<small class="card-meta mb-2">Project: <a href="projects/${project.id}"><c:out
-												value="${project.title}" /></a></small>
-								<h4 class="card-title mt-0 ">
-									<a class="text-white" herf="#">Goverment Lorem Ipsum Sit
-										Amet Consectetur dipisi?</a>
-								</h4>
-							</c:forEach>
-								<small><i class="far fa-clock"></i> October 15, 2020</small>
-							</div>
-							<div class="card-footer">
-								<div class="media">
-									<img class="mr-3 rounded-circle"
-										src="https://assets.codepen.io/460692/internal/avatars/users/default.png"
-										alt="Generic placeholder image" style="max-width: 50px">
-									<div class="media-body">
-										<h6 class="my-0 text-white d-block">Oz Coruhlu</h6>
-										<small>Director of UI/UX</small>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-12 col-md-6 col-lg-4 mb-4">
-					<div class="card text-white card-has-bg click-col"
-						style="background-image: url('https://source.unsplash.com/600x900/?tree,nature');">
-						<img class="card-img d-none"
-							src="https://source.unsplash.com/600x900/?tree,nature"
-							alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?">
-						<div class="card-img-overlay d-flex flex-column">
-							<div class="card-body">
-								<small class="card-meta mb-2">Thought Leadership</small>
-								<h4 class="card-title mt-0 ">
-									<a class="text-white" herf="#">Goverment Lorem Ipsum Sit
-										Amet Consectetur dipisi?</a>
-								</h4>
-								<small><i class="far fa-clock"></i> October 15, 2020</small>
-							</div>
-							<div class="card-footer">
-								<div class="media">
-									<img class="mr-3 rounded-circle"
-										src="https://assets.codepen.io/460692/internal/avatars/users/default.png"
-										alt="Generic placeholder image" style="max-width: 50px">
-									<div class="media-body">
-										<h6 class="my-0 text-white d-block">Oz Coruhlu</h6>
-										<small>Director of UI/UX</small>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-12 col-md-6 col-lg-4 mb-4">
-					<div class="card text-white card-has-bg click-col"
-						style="background-image: url('https://source.unsplash.com/600x900/?computer,design');">
-						<img class="card-img d-none"
-							src="https://source.unsplash.com/600x900/?computer,design"
-							alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?">
-						<div class="card-img-overlay d-flex flex-column">
-							<div class="card-body">
-								<small class="card-meta mb-2">Thought Leadership</small>
-								<h4 class="card-title mt-0 ">
-									<a class="text-white" herf="#">Goverment Lorem Ipsum Sit
-										Amet Consectetur dipisi?</a>
-								</h4>
-								<small><i class="far fa-clock"></i> October 15, 2020</small>
-							</div>
-							<div class="card-footer">
-								<div class="media">
-									<img class="mr-3 rounded-circle"
-										src="https://assets.codepen.io/460692/internal/avatars/users/default.png"
-										alt="Generic placeholder image" style="max-width: 50px">
-									<div class="media-body">
-										<h6 class="my-0 text-white d-block">Oz Coruhlu</h6>
-										<small>Director of UI/UX</small>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-
-			</div>
-	</section> --%>
-
-
-
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-4">
-				<div class="card card-margin">
-					<div class="card-header no-border">
-						<h5 class="card-title">MOM</h5>
-					</div>
-					<div class="card-body pt-0">
-						<div class="widget-49">
-							<div class="widget-49-title-wrapper">
-								<div class="widget-49-date-primary">
-									<span class="widget-49-date-day">09</span> <span
-										class="widget-49-date-month">apr</span>
-								</div>
-								<div class="widget-49-meeting-info">
-									<span class="widget-49-pro-title">PRO-08235 DeskOpe.
-										Website</span> <span class="widget-49-meeting-time">12:00 to
-										13.30 Hrs</span>
-								</div>
-							</div>
-							<ol class="widget-49-meeting-points">
-								<li class="widget-49-meeting-item"><span>Expand
-										module is removed</span></li>
-								<li class="widget-49-meeting-item"><span>Data
-										migration is in scope</span></li>
-								<li class="widget-49-meeting-item"><span>Session
-										timeout increase to 30 minutes</span></li>
-							</ol>
-							<div class="widget-49-meeting-action">
-								<a href="projects/${project.id}" class="btn btn-sm btn-flash-border-primary">View
-									All</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-4">
-				<div class="card card-margin">
-					<div class="card-header no-border">
-						<h5 class="card-title">MOM</h5>
-					</div>
-					<div class="card-body pt-0">
-						<div class="widget-49">
-							<div class="widget-49-title-wrapper">
-								<div class="widget-49-date-warning">
-									<span class="widget-49-date-day">13</span> <span
-										class="widget-49-date-month">apr</span>
-								</div>
-								<div class="widget-49-meeting-info">
-									<span class="widget-49-pro-title">PRO-08235 Lexa Corp.</span> <span
-										class="widget-49-meeting-time">12:00 to 13.30 Hrs</span>
-								</div>
-							</div>
-							<ol class="widget-49-meeting-points">
-								<li class="widget-49-meeting-item"><span>Scheming
-										module is removed</span></li>
-								<li class="widget-49-meeting-item"><span>App design
-										contract confirmed</span></li>
-								<li class="widget-49-meeting-item"><span>Client
-										request to send invoice</span></li>
-							</ol>
-							<div class="widget-49-meeting-action">
-								<a href="#" class="btn btn-sm btn-flash-border-warning">View
-									All</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-4">
-				<div class="card card-margin">
-					<div class="card-header no-border">
-						<h5 class="card-title">MOM</h5>
-					</div>
-					<div class="card-body pt-0">
-						<div class="widget-49">
-							<div class="widget-49-title-wrapper">
-								<div class="widget-49-date-success">
-									<span class="widget-49-date-day">22</span> <span
-										class="widget-49-date-month">apr</span>
-								</div>
-								<div class="widget-49-meeting-info">
-									<span class="widget-49-pro-title">PRO-027865 Opera
-										module</span> <span class="widget-49-meeting-time">12:00 to
-										13.30 Hrs</span>
-								</div>
-							</div>
-							<ol class="widget-49-meeting-points">
-								<li class="widget-49-meeting-item"><span>Scope is
-										revised and updated</span></li>
-								<li class="widget-49-meeting-item"><span>Time-line
-										has been changed</span></li>
-								<li class="widget-49-meeting-item"><span>Received
-										approval to start wire-frame</span></li>
-							</ol>
-							<div class="widget-49-meeting-action">
-								<a href="#" class="btn btn-sm btn-flash-border-success">View
-									All</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
 </body>
 </html>
