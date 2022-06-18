@@ -57,7 +57,7 @@
 					<th>ID</th>
 					<th>Project</th>
 					<th>Team Lead</th>
-					<th>Language</th>
+					<th>Deploy Date</th>
 					<th>Actions</th>
 				</tr>
 			<tbody>
@@ -66,7 +66,7 @@
 						<td>${project.id}</td>
 						<td><a href="projects/${project.id}"><c:out value="${project.title}" /></a></td>
 						<td>${project.leader.firstName}</td>
-						<td>${project.language}</td>
+						<td>${project.dueDate}</td>
 						<td><c:if test="${loggedInUser.id != project.leader.id}">
 								<c:choose>
 									<c:when test="${project.projectJoiners.contains(userLoggedIn)}"> </c:when>
@@ -88,7 +88,7 @@
 						<th>ID</th>
 						<th>Project</th>
 						<th>Team Lead</th>
-						<th>Language</th>
+						<th>Deploy Date</th>
 						<th class="text-center">Actions</th>
 					</tr>
 				<tbody>
@@ -97,15 +97,15 @@
 							<c:if
 								test="${project.projectJoiners.contains(userLoggedIn) || loggedInUser.id == project.leader.id}">
 								<td>${project.id}</td>
-								<td><a href="projects/${project.id}"><c:out value="${project.title}" /></a></td>
+								<td>${project.title}</td>
 								<td>${project.leader.firstName}</td>
-								<td>${project.language}</td>
+								<td>${project.dueDate}</td>
 								<td class="d-flex justify-content-center">
 									<c:choose>
 										<c:when test="${loggedInUser.id == project.leader.id}">
 											<a href="/projects/${project.id}/edit" class="btn btn-outline-dark mx-1"> Edit</a>
 											<form:form action="/projects/${project.id}/delete" method="delete">
-												<input type="submit" value="Delete" class="btn btn-outline-dark">
+												<input type="submit" value="Close Project" class="btn btn-outline-dark">
 											</form:form>
 										</c:when>
 										<c:otherwise>
@@ -121,24 +121,24 @@
 	</div>
 
 	<!-- HORIZANTAL CARDS -->
-	<div class= "card container d-flex col-12 mx-auto justify-content-between bg-transparent mt-4 mb-4 p-4">
-		<div class="title h2 my-3">Project Summaries</div>
+	<div class= "card container d-flex justify-content-between col-12 mx-auto bg-transparent mt-4 mb-4 p-4">
+		<div class="title h2 my-3">My Project Summary</div>
 		<c:forEach items="${projects}" var="project">
 			<c:if
 				test="${project.projectJoiners.contains(userLoggedIn) || loggedInUser.id == project.leader.id}">
-				<div class="card bg-transparent mb-4 p-4">
+				<div class="card bg-transparent d-flex justify-content-between col-5 mb-4 p-4">
 					<div class="row ">
-						<div class="col-md-8">
+						<div class="col-12">
 							<div class="card-block mt-4 mb-3 px-3">
-								<h4 class="card-title">Project Title: ${project.title}</h4>
+								<h4 class="card-title"> <strong>${project.title}</strong></h4>
 								<br>
 								<p class="card-text"> <strong>Description of Project:</strong> ${project.description} </p>
-								<p class="card-text"> <strong>Project Lead:</strong> ${project.leader.firstName} </p>
-								<p class="card-text"> <strong>Program Language:</strong> ${project.language} </p>
+								<%-- <p class="card-text"> <strong>Project Lead:</strong> ${project.leader.firstName} </p> --%>
+								<%-- <p class="card-text"> <strong>Program Language:</strong> ${project.language} </p> --%>
 								<p class="card-text"> <strong>Delpoyment Date:</strong> ${project.dueDate} </p>
-<%-- 								<br> 
-									<a href="/projects/${id}/tasks" class="mt-auto btn btn-primary  ">Read More</a>
-									<c:if test="${project.projectJoiners.contains(userLoggedIn) || project.leader.id == userLoggedIn.id }">
+								<br> 
+									<a href="projects/${project.id}" class="mt-auto btn btn-outline-dark  ">More Details</a>
+<%-- 									<c:if test="${project.projectJoiners.contains(userLoggedIn) || project.leader.id == userLoggedIn.id }">
                 						<a href="/projects/${project.id}/edit" class="btn btn-outline-dark mx-2">Edit Project</a>
                 					</c:if> 
                 					<a href="/projects/${id}/tasks" class="btn btn-outline-dark">View / Add Tasks</a> --%>

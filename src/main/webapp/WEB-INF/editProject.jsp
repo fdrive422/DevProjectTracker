@@ -17,7 +17,7 @@
 	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
 	crossorigin="anonymous">
 <!-- YOUR own local CSS -->
-<link rel="stylesheet" href="/../views/css/main.css"/>
+<link rel="stylesheet" href="/../views/css/main.css" />
 
 <!-- For any Bootstrap that uses JS or jQuery-->
 <script type="text/javascript" src="js/app.js"></script>
@@ -26,9 +26,12 @@
 <link
 	href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css"
 	rel="stylesheet" />
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
 <title>Edit Project</title>
 </head>
 
@@ -43,11 +46,12 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav">
-					<li class="m-1 nav-item"><a class="nav-link"
-						href="/dashboard">DASHBOARD </a></li>
+					<li class="m-1 nav-item"><a class="nav-link" href="/dashboard">DASHBOARD
+					</a></li>
 					<li class="m-1 nav-item"><a class="nav-link"
 						href="/projects/new">ADD PROJECT</a></li>
-					<li class="m-1 nav-item"><a class="nav-link" href="/">SIGN OUT</a></li>
+					<li class="m-1 nav-item"><a class="nav-link" href="/">SIGN
+							OUT</a></li>
 				</ul>
 			</div>
 		</nav>
@@ -82,8 +86,8 @@
 				<div class="form-group">
 					<form:label path="phase" class="py-2">Project Phase: </form:label>
 					<form:errors path="phase" class="text-danger" />
-					<form:input path="phase" class="form-control h-25" rows="3"/>
-<!--                  		<select class="form-select" aria-label="Default select">
+					<form:input path="phase" class="form-control h-25" rows="3" />
+					<!--                  		<select class="form-select" aria-label="Default select">
   							<option selected="">Open this select menu</option>
   							<option value="1">Planning</option>
   							<option value="2">Development</option>
@@ -103,34 +107,37 @@
 				</div>
 				<input type="submit" value="Update"
 					class="btn btn-outline-dark mx-1 my-3">
- 			<form:form action="/projects/${project.id}/delete" method="delete">
+<%-- 				<form:form action="/projects/${project.id}/delete" method="delete">
 					<input type="submit" value="Delete"
 						class="btn btn-outline-danger mx-1">
-				</form:form>
-					<c:forEach items="${projects}" var="project">
-						<tr class="bg-transparent">
-							<c:if
-								test="${project.projectJoiners.contains(userLoggedIn) || loggedInUser.id == project.leader.id}">
-								<td>${project.id}</td>
-								<td><a href="projects/${project.id}"><c:out value="${project.title}" /></a></td>
-								<td>${project.leader.firstName}</td>
-								<td>${project.dueDate}</td>
-								<td class="d-flex justify-content-center">
-									<c:choose>
-										<c:when test="${loggedInUser.id == project.leader.id}">
-											<a href="/projects/${project.id}/edit" class="btn btn-outline-dark mx-1">Edit Project</a>
-											<form:form action="/projects/${project.id}/delete" method="delete">
+				</form:form> --%>
+<%-- 				<c:forEach items="${projects}" var="project">
+					<tr class="bg-transparent">
+						<c:if
+							test="${project.projectJoiners.contains(userLoggedIn) || loggedInUser.id == project.leader.id}">
+							<td>${project.id}</td>
+							<td><a href="projects/${project.id}"><c:out
+										value="${project.title}" /></a></td>
+							<td>${project.leader.firstName}</td>
+							<td>${project.dueDate}</td>
+							<td class="d-flex justify-content-center"><c:choose>
+									<c:when test="${loggedInUser.id == project.leader.id}">
+										<a href="/projects/${project.id}/edit"
+											class="btn btn-outline-dark mx-1">Edit Project</a>
+										<form:form action="/projects/${project.id}/delete"
+											method="delete">
 											<input type="hidden" name="_method" value="delete">
-												<input type="submit" value="Delete" class="btn btn-outline-dark">
-											</form:form>
-										</c:when>
-										<c:otherwise>
-											<a href="/projects/${project.id}/leave">Leave Team</a>
-										</c:otherwise>
-									</c:choose></td>
-							</c:if>
-						</tr>
-					</c:forEach>
+											<input type="submit" value="Delete"
+												class="btn btn-outline-dark">
+										</form:form>
+									</c:when>
+									<c:otherwise>
+										<a href="/projects/${project.id}/leave">Leave Team</a>
+									</c:otherwise>
+								</c:choose></td>
+						</c:if>
+					</tr>
+				</c:forEach> --%>
 			</form:form>
 		</div>
 	</div>
