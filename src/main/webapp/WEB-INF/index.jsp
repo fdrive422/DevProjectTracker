@@ -1,29 +1,30 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ page isErrorPage="true" %>
+<%@ page isErrorPage="true"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<!-- YOUR own local CSS -->
-<link rel="stylesheet" href="../views/css/main.css" />
-<!-- Bootstrap -->
+<!-- for Bootstrap CSS -->
+<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
+<!-- for Boostrap CSS specifically for the table -->
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
 	rel="stylesheet"
 	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
 	crossorigin="anonymous">
-<script src="js/app.js" type="text/javascript"></script>
+<!-- YOUR own local CSS -->
+<link rel="stylesheet" href="/../views/css/main.css"/>
 <title>Registration and Login</title>
 </head>
 <body class="body-css">
 
 	<div class="card container bg-transparent my-5">
 		<div class="text-center">
-			<h1 class="text-dark">Developer Project Tracker</h1>
+			<h1 class="text-dark mt-5">Developer Project Tracker</h1>
 			<h3>Track that status of a developers project through deployment</h3>
 		</div>
         <div class="row justify-content-around my-2 gy-3">

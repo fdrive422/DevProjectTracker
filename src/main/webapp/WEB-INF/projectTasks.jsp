@@ -10,7 +10,6 @@
 <meta charset="UTF-8">
 <!-- for Bootstrap CSS -->
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
-<!-- for Boostrap CSS specifically for the table -->
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -22,39 +21,24 @@
 </head>
 <body class="body-css" >
 
-	<div class="text-center">
-		<div
-			class="p-3  d-flex justify-content-between align-items-center">
-<%-- 
-			<p class="navbar-brand">
-				<strong>Developer Project Tracker for
-					${loggedInUser.firstName}</strong>
-			</p>
-			<p class="navbar-brand">
-				<em>.....</em>
-			</p> --%>
-		</div>
-		<div class="mx-4 mb-3 text-center nav">
-			<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
-				<button class="navbar-toggler" type="button" data-toggle="collapse"
-					data-target="#navbarNav" aria-controls="navbarNav"
-					aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarNav">
-					<ul class="navbar-nav">
-						<li class="m-1 nav-item"><a class="nav-link"
-							href="/dashboard">DASHBOARD </a></li>
-						<li class="m-1 nav-item"><a class="nav-link disabled"
-							href="/projects/new">ADD PROJECT</a></li>
-						<li class="m-1 nav-item"><a class="nav-link" href="/">SIGN
-								OUT</a></li>
-					</ul>
-				</div>
-			</nav>
-		</div>
+	<div class="mt-5 mx-4 mb-3 text-center nav">
+		<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarNav" aria-controls="navbarNav"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav">
+					<li class="m-1 nav-item"><a class="nav-link"
+						href="/dashboard">DASHBOARD </a></li>
+					<li class="m-1 nav-item"><a class="nav-link disabled"
+						href="/projects/new">ADD PROJECT</a></li>
+					<li class="m-1 nav-item"><a class="nav-link" href="/">SIGN OUT</a></li>
+				</ul>
+			</div>
+		</nav>
 	</div>
-
 
 	<div class="card container mt-4 p-4 bg-transparent">
 		<div class="d-flex col-12 mx-auto justify-content-between">
@@ -64,9 +48,8 @@
 				<h5>Project Title: <c:out value="${project.title}" /></h5>
 				<h5>Project Owner: <c:out value="${project.leader.firstName}" /></h5>
 			</div>
-			<div class="my-2 row align-items-center">
-<!-- 				<p><a href="/projects" class="btn btn-outline-secondary mx-1">Return to Dashboard</a> </p> -->
-			</div>
+<!-- 			<div class="my-2 row align-items-center">
+			</div> -->
 		</div>
 		<div class="col-12 mx-auto">
 			<form:form action="/projects/${id}/tasks/create" method="post"
@@ -86,7 +69,6 @@
 					<form:input type="hidden" path="projectTask" value="${project.id}"
 						class="form-control" />
 				</div>
-
 				<p class="d-flex col-9 my-2">
 					<input type="submit" value="Add Task" class="btn btn-outline-dark">
 				</p>
@@ -94,7 +76,7 @@
 		</div>
 		<div class="my-5">
 		<h5>Current Task List:</h5>
-			<table class="table table-striped">
+			<table class="table table-hover ">
 				<thead>
 					<tr>
 						<th>Task / Feature Description</th>
@@ -118,7 +100,7 @@
  									<label class="form-check-label" for="formCheckDefault"></label>Complete 
 									</form:form>
 							</c:if>
-							</td>
+						</td>
 					<tr>
 				</c:forEach>
 				</tbody>

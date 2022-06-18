@@ -4,23 +4,20 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ page isErrorPage="true"%>
-<%@ page import="java.io.*,java.util.*, javax.servlet.*"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <!-- for Bootstrap CSS -->
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
-
 <!-- for Boostrap CSS specifically for the table -->
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
 	rel="stylesheet"
 	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
 	crossorigin="anonymous">
-
 <!-- YOUR own local CSS -->
-<link rel="stylesheet" href="/../views/css/main.css" />
+<link rel="stylesheet" href="/../views/css/main.css"/>
 
 <!-- For any Bootstrap that uses JS or jQuery-->
 <script type="text/javascript" src="js/app.js"></script>
@@ -29,50 +26,31 @@
 <link
 	href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css"
 	rel="stylesheet" />
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
-<script src="js/app.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
 <title>Edit Project</title>
 </head>
 
 <body class="body-css">
-<body class="body-css">
 
-	<div class="text-center">
-		<div
-			class="p-3  d-flex justify-content-between align-items-center">
-<%-- 
-			<p class="navbar-brand">
-				<strong>Developer Project Tracker for
-					${loggedInUser.firstName}</strong>
-			</p>
-			<p class="navbar-brand">
-				<em>.....</em>
-			</p> --%>
-		</div>
-		<div class="mx-4 mb-3 text-center nav">
-			<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
-				<button class="navbar-toggler" type="button" data-toggle="collapse"
-					data-target="#navbarNav" aria-controls="navbarNav"
-					aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarNav">
-					<ul class="navbar-nav">
-						<li class="m-1 nav-item"><a class="nav-link"
-							href="/dashboard">DASHBOARD </a></li>
-						<li class="m-1 nav-item"><a class="nav-link disable"
-							href="/projects/new">ADD PROJECT</a></li>
-						<li class="m-1 nav-item"><a class="nav-link disable" href="/">SIGN
-								OUT</a></li>
-					</ul>
-				</div>
-			</nav>
-		</div>
+	<div class="mt-5 mx-4 mb-3 text-center nav">
+		<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarNav" aria-controls="navbarNav"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav">
+					<li class="m-1 nav-item"><a class="nav-link"
+						href="/dashboard">DASHBOARD </a></li>
+					<li class="m-1 nav-item"><a class="nav-link"
+						href="/projects/new">ADD PROJECT</a></li>
+					<li class="m-1 nav-item"><a class="nav-link" href="/">SIGN OUT</a></li>
+				</ul>
+			</div>
+		</nav>
 	</div>
 
 
@@ -80,11 +58,6 @@
 		<div class="d-flex col-12 mx-auto justify-content-between">
 			<div class="my-3">
 				<h1>Edit Project</h1>
-			</div>
-			<div class="my-2 row align-items-center">
-				<p>
-					<!-- 					<a href="/projects" class="btn btn-outline-dark">Return to Dashboard</a> -->
-				</p>
 			</div>
 		</div>
 		<div class="col-12 mx-auto">
@@ -109,7 +82,13 @@
 				<div class="form-group">
 					<form:label path="phase" class="py-2">Project Phase: </form:label>
 					<form:errors path="phase" class="text-danger" />
-					<form:input path="phase" class="form-control h-25" rows="3" />
+					<form:input path="phase" class="form-control h-25" rows="3"/>
+<!--                  		<select class="form-select" aria-label="Default select">
+  							<option selected="">Open this select menu</option>
+  							<option value="1">Planning</option>
+  							<option value="2">Development</option>
+  							<option value="3">Testing</option>
+						</select> -->
 				</div>
 				<div class="form-group">
 					<form:label path="dueDate" class="py-2">Deployment Date: </form:label>
@@ -124,7 +103,7 @@
 				</div>
 				<input type="submit" value="Update"
 					class="btn btn-outline-dark mx-1 my-3">
-				<form:form action="/projects/${project.id}/delete" method="delete">
+ 			<form:form action="/projects/${project.id}/delete" method="delete">
 					<input type="submit" value="Delete"
 						class="btn btn-outline-danger mx-1">
 				</form:form>
