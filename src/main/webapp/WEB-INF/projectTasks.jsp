@@ -15,7 +15,7 @@
 	rel="stylesheet"
 	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
 	crossorigin="anonymous">
-<!-- YOUR own local CSS -->
+<!-- My CSS -->
 <link rel="stylesheet" href="/../views/css/main.css"/>
 <title>Project Tasks</title>
 </head>
@@ -40,16 +40,14 @@
 		</nav>
 	</div>
 
-	<div class="card container mt-4 p-4 bg-transparent">
+	<div class="card container mt-4 mb-4 p-4 bg-transparent">
 		<div class="d-flex col-12 mx-auto justify-content-between">
-			<div class="my-3">
+			<div class="">
 				<h1>Project Task</h1>
 				<br>
 				<h5>Project Title: <c:out value="${project.title}" /></h5>
 				<h5>Project Owner: <c:out value="${project.leader.firstName}" /></h5>
 			</div>
-<!-- 			<div class="my-2 row align-items-center">
-			</div> -->
 		</div>
 		<div class="col-12 mx-auto">
 			<form:form action="/projects/${id}/tasks/create" method="post"

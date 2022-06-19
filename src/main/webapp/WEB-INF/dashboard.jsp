@@ -10,13 +10,12 @@
 <meta charset="UTF-8">
 <!-- for Bootstrap CSS -->
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
-<!-- for Boostrap CSS specifically for the table -->
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
 	rel="stylesheet"
 	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
 	crossorigin="anonymous">
-<!-- YOUR own local CSS -->
+<!-- My CSS -->
 <link rel="stylesheet" href="/../views/css/main.css"/>
 <title>Dashboard</title>
 </head>
@@ -46,15 +45,16 @@
 		<div class="d-flex justify-content-between">
 			<div class="my-2">
 				<h1>Project Dashboard</h1>
-				 <h4>Welcome,<c:out value="${loggedInUser.firstName}" /></h4>
+				 <h4>Welcome, <c:out value="${loggedInUser.firstName}" /></h4>
 				<br>
 				<h4>Team Projects</h4>
 			</div>
 		</div>
+		
+		<!-- TEAM TABLE -->
 		<table class="table table-hover table-bg-transparent my-3">
 			<thead>
 				<tr class="bg-transparent">
-					<th>ID</th>
 					<th>Project</th>
 					<th>Team Lead</th>
 					<th>Deploy Date</th>
@@ -63,7 +63,6 @@
 			<tbody>
 				<c:forEach items="${projects}" var="project">
 					<tr class="bg-transparent text-dark">
-						<td>${project.id}</td>
 						<td><a href="projects/${project.id}"><c:out value="${project.title}" /></a></td>
 						<td>${project.leader.firstName}</td>
 						<td>${project.dueDate}</td>
@@ -74,18 +73,20 @@
 										<a href="/projects/${project.id}/join">Join Team</a>
 									</c:otherwise>
 								</c:choose>
-							</c:if></td>
+							</c:if>
+						</td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
-
+		
+		<!-- MY TABLE -->
 		<div class="col-12 mx-auto">
 			<h4 class="my-3">Projects I'm On</h4>
 			<table class="table table-hover table-bg-transparent my-3">
 				<thead>
 					<tr class="bg-transparent">
-						<th>ID</th>
+						<!-- <th>ID</th> -->
 						<th>Project</th>
 						<th>Team Lead</th>
 						<th>Deploy Date</th>
@@ -96,14 +97,12 @@
 						<tr class="bg-transparent">
 							<c:if
 								test="${project.projectJoiners.contains(userLoggedIn) || loggedInUser.id == project.leader.id}">
-								<td>${project.id}</td>
 								<td>${project.title}</td>
 								<td>${project.leader.firstName}</td>
 								<td>${project.dueDate}</td>
 								<td class="d-flex justify-content-center">
 									<c:choose>
 										<c:when test="${loggedInUser.id == project.leader.id}">
-											<a href="/projects/${project.id}/edit" class="btn btn-outline-dark mx-1"> Edit</a>
 											<form:form action="/projects/${project.id}/delete" method="delete">
 												<input type="submit" value="Close Project" class="btn btn-outline-dark">
 											</form:form>
@@ -119,35 +118,34 @@
 			</table>
 		</div>
 	</div>
-
-	<!-- HORIZANTAL CARDS -->
-	<div class= "card container d-flex justify-content-between col-12 mx-auto bg-transparent mt-4 mb-4 p-4">
-		<div class="title h2 my-3">My Project Summary</div>
+	
+	<!-- CARDS -->
+	<div class= "card container d-flex col-12 mx-auto justify-content-between bg-transparent mt-4 mb-4 p-4">
+		<div class="my-2">
+				<h2>My Project Summary</h2>
+		<div class= "display-card bg-transparent mx-auto p-5">
+			<!-- d-flex justify-content-between col-5 mb-4 p-4"-->
 		<c:forEach items="${projects}" var="project">
 			<c:if
 				test="${project.projectJoiners.contains(userLoggedIn) || loggedInUser.id == project.leader.id}">
-				<div class="card bg-transparent d-flex justify-content-between col-5 mb-4 p-4">
+				<div class="card bg-transparent col-6 mx-auto mb-4 p-4">
 					<div class="row ">
 						<div class="col-12">
-							<div class="card-block mt-4 mb-3 px-3">
+							<div class="card-block ">
 								<h4 class="card-title"> <strong>${project.title}</strong></h4>
 								<br>
 								<p class="card-text"> <strong>Description of Project:</strong> ${project.description} </p>
-								<%-- <p class="card-text"> <strong>Project Lead:</strong> ${project.leader.firstName} </p> --%>
-								<%-- <p class="card-text"> <strong>Program Language:</strong> ${project.language} </p> --%>
 								<p class="card-text"> <strong>Delpoyment Date:</strong> ${project.dueDate} </p>
 								<br> 
-									<a href="projects/${project.id}" class="mt-auto btn btn-outline-dark  ">More Details</a>
-<%-- 									<c:if test="${project.projectJoiners.contains(userLoggedIn) || project.leader.id == userLoggedIn.id }">
-                						<a href="/projects/${project.id}/edit" class="btn btn-outline-dark mx-2">Edit Project</a>
-                					</c:if> 
-                					<a href="/projects/${id}/tasks" class="btn btn-outline-dark">View / Add Tasks</a> --%>
+								<a href="/projects/${project.id}" class="mb-2 btn btn-outline-dark ">More Details</a>
 							</div>
 						</div>
-					</div>
+				 	</div>
 				</div>
 			</c:if>
 		</c:forEach>
+		</div>
+		</div>
 	</div>
 
 </body>
