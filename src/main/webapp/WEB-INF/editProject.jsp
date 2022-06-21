@@ -27,10 +27,11 @@
 
 <body class="body-bg">
 
-<div class="mt-3 text-center text-primary">
-		<div class="mx-3 d-flex justify-content-between align-items-center">
+	<div class="mt-3 text-center ">
+		<div class="mx-4 d-flex justify-content-between align-items-center">
 			<h1>Developer Project Tracker</h1>
-		</div>	 
+			<p class="mx-3"> Welcome,${loggedInUser.firstName}</p>
+		</div> 
 	<div class="mt-2 mx-4 mb-3 text-center nav">
 		<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -54,7 +55,7 @@
 	<div class="card container bg-transparent mt-4 mb-4 p-4">
 		<div class="d-flex col-12 mx-auto justify-content-between">
 			<div class="my-3">
-				<h1>Edit Project</h1>
+				<h2>Edit Project</h2>
 			</div>
 		</div>
 		<div class="col-12 mx-auto">
@@ -92,8 +93,8 @@
 					<form:input type="hidden" path="leader" value="${loggedInUser.id}"
 						class="form-control" />
 				</div>
-				 	<a href="/projects" class="btn btn-outline-dark">Cancel</a>
-					<input type="submit" value="Update" class="btn btn-outline-dark mx-1 my-3">
+				 	<a href="/projects" class="btn btn-secondary">Cancel</a>
+					<input type="submit" value="Update" class="btn btn-primary mx-1 my-3">
 
 			</form:form>
 		</div>

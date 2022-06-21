@@ -21,10 +21,11 @@
 </head>
 <body class="body-bg">
 
-	<div class="mt-3 text-center text-primary">
-		<div class="mx-3 d-flex justify-content-between align-items-center">
+	<div class="mt-3 text-center ">
+		<div class="mx-4 d-flex justify-content-between align-items-center">
 			<h1>Developer Project Tracker</h1>
-		</div>	 
+			<p class="mx-3"> Welcome,${loggedInUser.firstName}</p>
+		</div>	
 	<div class="mt-2 mx-4 mb-3 text-center nav">
 		<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -98,10 +99,10 @@
 								<h4 class="card-title"> <strong>${project.title}</strong></h4>
 								<br>
 								<p class="card-text"> <strong>Description of Project:</strong> ${project.description} </p>
-								<p class="card-text"> <strong>Proeject Leader:</strong> ${project.leader.firstName} </p>
+								<p class="card-text"> <strong>Project Leader:</strong> ${project.leader.firstName} </p>
 								<p class="card-text"> <strong>Delpoyment Date:</strong> ${project.dueDate} </p>
 								<br> 
-								<a href="/projects/${project.id}" class="mb-2 btn btn-outline-primary mx-2 ">More Details</a>
+								<a href="/projects/${project.id}" class="mb-2 btn btn-primary mx-2 ">More Details</a>
 								<c:choose>
 										<c:when test="${loggedInUser.id == project.leader.id}">
 											<%-- <form:form action="/projects/${project.id}/delete" method="delete">
@@ -109,7 +110,7 @@
 											</form:form> --%>
 										</c:when>
 										<c:otherwise>
-											<a href="/projects/${project.id}/leave" class="mb-2 btn btn-outline-warning ">Leave Team</a>
+											<a href="/projects/${project.id}/leave" class="mb-2 btn btn-warning ">Leave Team</a>
 										</c:otherwise>
 									</c:choose>
 							</div>

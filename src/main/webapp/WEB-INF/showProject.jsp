@@ -21,10 +21,11 @@
 </head>
 <body class="body-bg">
 
-	<div class="mt-3 text-center text-primary">
-		<div class="mx-3 d-flex justify-content-between align-items-center">
+	<div class="mt-3 text-center ">
+		<div class="mx-4 d-flex justify-content-between align-items-center">
 			<h1>Developer Project Tracker</h1>
-		</div>	 
+			<p class="mx-3"> Welcome,${loggedInUser.firstName}</p>
+		</div>
 	<div class="mt-2 mx-4 mb-3 text-center nav">
 		<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -47,7 +48,7 @@
 
 	<div class="card container mt-4 mb-4 p-4 bg-transparent">
 		<div class="d-flex col-12 mx-auto justify-content-between">
-			<h1 class="text-dark">Project Details</h1>
+			<h2 class="text-dark">Project Details</h2>
 		</div>
 		<div class="my-3 row align-items-center">
 			<div class="row g-3 mx-2 my-2">
@@ -80,12 +81,12 @@
 			</div>
 			<div class="d-flex col-9 my-2">
 				<c:if test="${project.projectJoiners.contains(userLoggedIn) || project.leader.id == userLoggedIn.id }">
-				<a href="/projects/${project.id}/edit" class="btn btn-outline-dark mx-2">Edit Project</a>
-				<a href="/projects/${id}/tasks" class="btn btn-outline-dark">View / Add Tasks</a>
+				<a href="/projects/${id}/tasks" class="btn btn-primary mx-2">View / Add Tasks</a>
 					<c:choose>
 					<c:when test="${loggedInUser.id == project.leader.id}">
+						<a href="/projects/${project.id}/edit" class="btn btn-primary mx-2">Edit Project</a>
 					<form:form action="/projects/${project.id}/delete" method="delete">
-						<input type="submit" value="Close Project" class="mx-2 btn btn-outline-danger">
+						<input type="submit" value="Close Project" class="mx-2 btn btn-danger">
 					</form:form>
 					</c:when>
 					</c:choose>

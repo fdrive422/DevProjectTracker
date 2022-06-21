@@ -21,9 +21,10 @@
 </head>
 <body class="body-bg" >
 
-	<div class="mt-3 text-center text-primary">
-		<div class="mx-3 d-flex justify-content-between align-items-center">
+	<div class="mt-3 text-center ">
+		<div class="mx-4 d-flex justify-content-between align-items-center">
 			<h1>Developer Project Tracker</h1>
+			<p class="mx-3"> Welcome,${loggedInUser.firstName}</p>
 		</div>	 
 	<div class="mt-2 mx-4 mb-3 text-center nav">
 		<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
@@ -40,6 +41,7 @@
 						href="/projects/new">ADD PROJECT</a></li>
 					<li class="m-1 nav-item"><a class="nav-link" href="/">SIGN OUT</a></li>
 				</ul>
+
 			</div>
 		</nav>
 	</div>
@@ -48,10 +50,10 @@
 	<div class="card container mt-4 mb-4 p-4 bg-transparent">
 		<div class="d-flex col-12 mx-auto justify-content-between">
 			<div class="">
-				<h1>Project Task</h1>
+				<h2>Project Task</h2>
 				<br>
 				<h5>Project Title: <c:out value="${project.title}" /></h5>
-				<h5>Project Owner: <c:out value="${project.leader.firstName}" /></h5>
+				<h5>Project Leader: <c:out value="${project.leader.firstName}" /></h5>
 			</div>
 		</div>
 		<div class="col-12 mx-auto">
@@ -73,7 +75,7 @@
 						class="form-control" />
 				</div>
 				<p class="d-flex col-9 my-2">
-					<input type="submit" value="Add Task" class="btn btn-outline-dark">
+					<input type="submit" value="Add Task" class="btn btn-primary">
 				</p>
 			</form:form>
 		</div>
