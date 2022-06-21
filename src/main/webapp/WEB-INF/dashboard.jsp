@@ -24,7 +24,7 @@
 	<div class="mt-3 text-center ">
 		<div class="mx-4 d-flex justify-content-between align-items-center">
 			<h1>Developer Project Tracker</h1>
-			<p class="mx-3"> Welcome,${loggedInUser.firstName}</p>
+			<p class="mx-3"> Welcome, ${loggedInUser.firstName}</p>
 		</div>	
 	<div class="mt-2 mx-4 mb-3 text-center nav">
 		<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
@@ -82,7 +82,7 @@
 				</c:forEach>
 			</tbody>
 		</table>
-		</div>
+	</div>
 	
 	<!-- MY PROJECT CARDS -->
 	<div class= "card container d-flex col-12 mx-auto justify-content-between bg-transparent mt-4 mb-4 p-4">
@@ -92,7 +92,7 @@
 		<c:forEach items="${projects}" var="project">
 			<c:if
 				test="${project.projectJoiners.contains(userLoggedIn) || loggedInUser.id == project.leader.id}">
-				<div class="card bg-transparent col-6 mx-auto mb-4 p-4">
+				<div class="card bg-transparent col-5 mx-auto mb-4 p-4">
 					<div class="row ">
 						<div class="col-12">
 							<div class="card-block">
