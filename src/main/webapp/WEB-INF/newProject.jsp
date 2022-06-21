@@ -25,9 +25,13 @@
 <title>Add Project</title>
 </head>
 
-<body class="body-css" >
+<body class="body-bg">
 
-	<div class="mt-5 mx-4 mb-3 text-center nav">
+<div class="mt-3 text-center text-primary">
+		<div class="mx-3 d-flex justify-content-between align-items-center">
+			<h1>Developer Project Tracker</h1>
+		</div>	 
+	<div class="mt-2 mx-4 mb-3 text-center nav">
 		<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarNav" aria-controls="navbarNav"
@@ -44,6 +48,7 @@
 				</ul>
 			</div>
 		</nav>
+	</div>
 	</div>
 
 	<div class="card container d-flex col-12 mx-auto justify-content-between bg-transparent mt-4 mb-4 p-4">

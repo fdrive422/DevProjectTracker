@@ -19,7 +19,7 @@
 <link rel="stylesheet" href="/../views/css/main.css"/>
 <title>Registration and Login</title>
 </head>
-<body class="body-css">
+<body class="body-bg">
 
 	<div class="card container bg-transparent my-5">
 		<div class="text-center">

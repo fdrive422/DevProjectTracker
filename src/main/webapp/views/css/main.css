@@ -1,11 +1,19 @@
 /* generated background gradient via https://htmlcheatsheet.com/css/ */
-.body-css {
+.body-bg {
 	background: #5A7896;
 	background: -moz-linear-gradient(left, #5A7896 0%, #B9B9B9 48%, #5A7896 100%);
 	background: -webkit-linear-gradient(left, #5A7896 0%, #B9B9B9 48%, #5A7896 100%);
 	background: linear-gradient(to right, #5A7896 0%, #B9B9B9 48%, #5A7896 100%);
 	font-family: Helvetica, sans-serif;
 }
+
+/* .card-bg {
+	background: #1C6EA4;
+	background: -moz-linear-gradient(45deg, #1C6EA4 0%, #2388CB 50%, #144E75 100%);
+	background: -webkit-linear-gradient(45deg, #1C6EA4 0%, #2388CB 50%, #144E75 100%);
+	background: linear-gradient(45deg, #1C6EA4 0%, #2388CB 50%, #144E75 100%);
+	font-family: Helvetica, sans-serif;
+} */
 
 .wrapper {
 	margin: 10vh;
@@ -22,8 +30,8 @@
 
 .display-card {
 	display: flex;
-	flex-grow: 0; 
-	flex-shrink : 1;
+	flex-grow: 0;
+	flex-shrink: 1;
 	flex-direction: row;
 	align-items: center;
 	justify-content: between;

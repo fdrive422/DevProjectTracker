@@ -19,9 +19,13 @@
 <link rel="stylesheet" href="/../views/css/main.css"/>
 <title>Project Tasks</title>
 </head>
-<body class="body-css" >
+<body class="body-bg" >
 
-	<div class="mt-5 mx-4 mb-3 text-center nav">
+	<div class="mt-3 text-center text-primary">
+		<div class="mx-3 d-flex justify-content-between align-items-center">
+			<h1>Developer Project Tracker</h1>
+		</div>	 
+	<div class="mt-2 mx-4 mb-3 text-center nav">
 		<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarNav" aria-controls="navbarNav"
@@ -38,6 +42,7 @@
 				</ul>
 			</div>
 		</nav>
+	</div>
 	</div>
 
 	<div class="card container mt-4 mb-4 p-4 bg-transparent">
@@ -91,11 +96,9 @@
 						<td> 
 							<c:if
 								test="${task.creator.id == loggedInUser.id || project.leader.id == loggedInUser.id}">
-									<form:form action="/projects/${project.id}/tasks/${task.id}/delete"
-									method="delete">
-									<!-- <input type="submit" value="Completed" class="btn btn-danger mb-3"> -->
-									<input type="submit" class="form-check-input" type="checkbox" value="" id="formCheckDefault">
- 									<label class="form-check-label" for="formCheckDefault"></label>Complete 
+									<form:form action="/projects/${project.id}/tasks/${task.id}/delete" method="delete">
+										<input type="submit" class="form-check-input" type="checkbox" value="" id="formCheckDefault">
+ 										<label class="form-check-label" for="formCheckDefault"></label>Complete 
 									</form:form>
 							</c:if>
 						</td>

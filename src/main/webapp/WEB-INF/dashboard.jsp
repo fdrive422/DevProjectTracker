@@ -19,9 +19,13 @@
 <link rel="stylesheet" href="/../views/css/main.css"/>
 <title>Dashboard</title>
 </head>
-<body class="body-css">
+<body class="body-bg">
 
-	<div class="mt-5 mx-4 mb-3 text-center nav">
+	<div class="mt-3 text-center text-primary">
+		<div class="mx-3 d-flex justify-content-between align-items-center">
+			<h1>Developer Project Tracker</h1>
+		</div>	 
+	<div class="mt-2 mx-4 mb-3 text-center nav">
 		<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarNav" aria-controls="navbarNav"
@@ -39,15 +43,13 @@
 			</div>
 		</nav>
 	</div>
+	</div>
 
-	<div
+ 	<div
 		class="card container d-flex col-12 mx-auto justify-content-between bg-transparent mt-4 mb-4 p-4">
 		<div class="d-flex justify-content-between">
 			<div class="my-2">
-				<h1>Project Dashboard</h1>
-				 <h4>Welcome, <c:out value="${loggedInUser.firstName}" /></h4>
-				<br>
-				<h4>Team Projects</h4>
+				<h2> Open Project List</h2>
 			</div>
 		</div>
 		
@@ -79,65 +81,37 @@
 				</c:forEach>
 			</tbody>
 		</table>
-		
-		<!-- MY TABLE -->
-		<div class="col-12 mx-auto">
-			<h4 class="my-3">Projects I'm On</h4>
-			<table class="table table-hover table-bg-transparent my-3">
-				<thead>
-					<tr class="bg-transparent">
-						<!-- <th>ID</th> -->
-						<th>Project</th>
-						<th>Team Lead</th>
-						<th>Deploy Date</th>
-						<th class="text-center">Actions</th>
-					</tr>
-				<tbody>
-					<c:forEach items="${projects}" var="project">
-						<tr class="bg-transparent">
-							<c:if
-								test="${project.projectJoiners.contains(userLoggedIn) || loggedInUser.id == project.leader.id}">
-								<td>${project.title}</td>
-								<td>${project.leader.firstName}</td>
-								<td>${project.dueDate}</td>
-								<td class="d-flex justify-content-center">
-									<c:choose>
-										<c:when test="${loggedInUser.id == project.leader.id}">
-											<form:form action="/projects/${project.id}/delete" method="delete">
-												<input type="submit" value="Close Project" class="btn btn-outline-dark">
-											</form:form>
-										</c:when>
-										<c:otherwise>
-											<a href="/projects/${project.id}/leave">Leave Team</a>
-										</c:otherwise>
-									</c:choose></td>
-							</c:if>
-						</tr>
-					</c:forEach>
-				</tbody>
-			</table>
 		</div>
-	</div>
 	
-	<!-- CARDS -->
+	<!-- MY PROJECT CARDS -->
 	<div class= "card container d-flex col-12 mx-auto justify-content-between bg-transparent mt-4 mb-4 p-4">
 		<div class="my-2">
-				<h2>My Project Summary</h2>
+				<h2> ${loggedInUser.firstName}'s Project List</h2>
 		<div class= "display-card bg-transparent mx-auto p-5">
-			<!-- d-flex justify-content-between col-5 mb-4 p-4"-->
 		<c:forEach items="${projects}" var="project">
 			<c:if
 				test="${project.projectJoiners.contains(userLoggedIn) || loggedInUser.id == project.leader.id}">
 				<div class="card bg-transparent col-6 mx-auto mb-4 p-4">
 					<div class="row ">
 						<div class="col-12">
-							<div class="card-block ">
+							<div class="card-block">
 								<h4 class="card-title"> <strong>${project.title}</strong></h4>
 								<br>
 								<p class="card-text"> <strong>Description of Project:</strong> ${project.description} </p>
+								<p class="card-text"> <strong>Proeject Leader:</strong> ${project.leader.firstName} </p>
 								<p class="card-text"> <strong>Delpoyment Date:</strong> ${project.dueDate} </p>
 								<br> 
-								<a href="/projects/${project.id}" class="mb-2 btn btn-outline-dark ">More Details</a>
+								<a href="/projects/${project.id}" class="mb-2 btn btn-outline-primary mx-2 ">More Details</a>
+								<c:choose>
+										<c:when test="${loggedInUser.id == project.leader.id}">
+											<%-- <form:form action="/projects/${project.id}/delete" method="delete">
+												<input type="submit" value="Close Project" class="btn btn-outline-danger">
+											</form:form> --%>
+										</c:when>
+										<c:otherwise>
+											<a href="/projects/${project.id}/leave" class="mb-2 btn btn-outline-warning ">Leave Team</a>
+										</c:otherwise>
+									</c:choose>
 							</div>
 						</div>
 				 	</div>
