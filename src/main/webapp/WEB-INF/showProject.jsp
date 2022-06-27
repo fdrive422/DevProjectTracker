@@ -73,7 +73,7 @@
 			</div>
 			<div class="row g-3 mx-2 my-2">
 				<div class="col-3"><h5>Project Phase:</h5> </div>
-				<div class="col-6"> ${project.phase}, as of <fmt:formatDate type="both" dateStyle="medium" timeStyle="short" value="${project.createdAt}"/></div>
+				<div class="col-6"> ${project.phase}, as of <fmt:formatDate type="both" dateStyle="medium" timeStyle="short" value="${project.updatedAt}"/></div>
 			</div>
 			<div class="row g-3 mx-2 my-2">
 				<div class="col-3"> <h5>Deployment Date:</h5> </div>
