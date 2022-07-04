@@ -1,26 +1,26 @@
 /* generated background gradient via https://htmlcheatsheet.com/css/ */
 .body-bg {
 	background: #5A7896;
-	background: -moz-linear-gradient(left, #5A7896 0%, #B9B9B9 48%, #5A7896 100%);
-	background: -webkit-linear-gradient(left, #5A7896 0%, #B9B9B9 48%, #5A7896 100%);
-	background: linear-gradient(to right, #5A7896 0%, #B9B9B9 48%, #5A7896 100%);
+	background: -moz-linear-gradient(left, #B9B9B9 48%, #5A7896 100%);
+	background: -webkit-linear-gradient(left, #B9B9B9 48%, #5A7896 100%);
+	background: linear-gradient(to right, #B9B9B9 48%, #5A7896 100%);
 	font-family: Helvetica, sans-serif;
 }
 
-/* .card-bg {
+.card-bg {
 	background: #1C6EA4;
 	background: -moz-linear-gradient(45deg, #1C6EA4 0%, #2388CB 50%, #144E75 100%);
 	background: -webkit-linear-gradient(45deg, #1C6EA4 0%, #2388CB 50%, #144E75 100%);
 	background: linear-gradient(45deg, #1C6EA4 0%, #2388CB 50%, #144E75 100%);
 	font-family: Helvetica, sans-serif;
-} */
+}
 
 .wrapper {
 	margin: 10vh;
 }
 
 .card {
-	border: none;
+	border: none; 
 	transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
 	overflow: hidden;
 	border-radius: 20px;
@@ -36,6 +36,16 @@
 	align-items: center;
 	justify-content: between;
 	flex-wrap: wrap;
+}
+
+.sml-card {
+	border: none;
+	transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
+	overflow: hidden;
+	border-radius: 20px;
+	height: 450px;
+	width: 350px;
+	box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.2);
 }
 
 .border {

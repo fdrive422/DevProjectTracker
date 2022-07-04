@@ -91,8 +91,8 @@
                 	</div>
                 </div>
                 <p class="my-3">
-                	<a href="/projects" class="btn btn-secondary">Cancel</a>
-                	<input type="submit" value="Submit" class="btn btn-primary">
+                	<a href="/projects" class="btn btn-outline-secondary">Cancel</a>
+                	<input type="submit" value="Submit" class="btn btn-outline-primary">
               	</p>
           	</form:form>
      	</div>

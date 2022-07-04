@@ -92,7 +92,7 @@
 		<c:forEach items="${projects}" var="project">
 			<c:if
 				test="${project.projectJoiners.contains(userLoggedIn) || loggedInUser.id == project.leader.id}">
-				<div class="card bg-transparent col-5 mx-auto mb-4 p-4">
+				<div class="card sml-card bg-transparent col-5 mx-auto mb-4 p-4">
 					<div class="row ">
 						<div class="col-12">
 							<div class="card-block">
@@ -102,7 +102,7 @@
 								<p class="card-text"> <strong>Project Leader:</strong> ${project.leader.firstName} </p>
 								<p class="card-text"> <strong>Delpoyment Date:</strong> ${project.dueDate} </p>
 								<br> 
-								<a href="/projects/${project.id}" class="mb-2 btn btn-primary mx-2 ">More Details</a>
+								<a href="/projects/${project.id}" class="mb-2 btn btn-outline-primary mx-2 ">More Details</a>
 								<c:choose>
 										<c:when test="${loggedInUser.id == project.leader.id}">
 											<%-- <form:form action="/projects/${project.id}/delete" method="delete">
@@ -110,7 +110,7 @@
 											</form:form> --%>
 										</c:when>
 										<c:otherwise>
-											<a href="/projects/${project.id}/leave" class="mb-2 btn btn-warning ">Leave Team</a>
+											<a href="/projects/${project.id}/leave" class="mb-2 btn btn-outline-warning ">Leave Team</a>
 										</c:otherwise>
 									</c:choose>
 							</div>

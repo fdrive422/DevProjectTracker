@@ -73,7 +73,7 @@
 			</div>
 			<div class="row g-3 mx-2 my-2">
 				<div class="col-3"><h5>Project Phase:</h5> </div>
-				<div class="col-6"> ${project.phase}, as of <fmt:formatDate type="both" dateStyle="medium" timeStyle="short" value="${project.createdAt}"/></div>
+				<div class="col-6"> ${project.phase}, as of <fmt:formatDate type="both" dateStyle="medium" timeStyle="short" value="${project.updatedAt}"/></div>
 			</div>
 			<div class="row g-3 mx-2 my-2">
 				<div class="col-3"> <h5>Deployment Date:</h5> </div>
@@ -81,12 +81,12 @@
 			</div>
 			<div class="d-flex col-9 my-2">
 				<c:if test="${project.projectJoiners.contains(userLoggedIn) || project.leader.id == userLoggedIn.id }">
-				<a href="/projects/${id}/tasks" class="btn btn-primary mx-2">View / Add Tasks</a>
+				<a href="/projects/${id}/tasks" class="btn btn-outline-primary mx-2">View / Add Tasks</a>
 					<c:choose>
 					<c:when test="${loggedInUser.id == project.leader.id}">
-						<a href="/projects/${project.id}/edit" class="btn btn-primary mx-2">Edit Project</a>
+						<a href="/projects/${project.id}/edit" class="btn btn-outline-primary mx-2">Edit Project</a>
 					<form:form action="/projects/${project.id}/delete" method="delete">
-						<input type="submit" value="Close Project" class="mx-2 btn btn-danger">
+						<input type="submit" value="Close Project" class="mx-2 btn btn-outline-danger">
 					</form:form>
 					</c:when>
 					</c:choose>

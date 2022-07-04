@@ -75,7 +75,7 @@
 						class="form-control" />
 				</div>
 				<p class="d-flex col-9 my-2">
-					<input type="submit" value="Add Task" class="btn btn-primary">
+					<input type="submit" value="Add Task" class="btn btn-outline-primary">
 				</p>
 			</form:form>
 		</div>
@@ -85,7 +85,7 @@
 				<thead>
 					<tr>
 						<th>Task / Feature Description</th>
-						<th>Added By</th>
+						<th>Task Owner</th>
 						<th>Date Added</th>
 						<th>Action</th>
 					</tr>
