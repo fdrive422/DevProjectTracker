@@ -46,7 +46,7 @@
 	</div>
 	</div>
 
- 	<div
+	<div
 		class="card container d-flex col-12 mx-auto justify-content-between bg-transparent mt-4 mb-4 p-4">
 		<div class="d-flex justify-content-between">
 			<div class="my-2">
@@ -98,11 +98,11 @@
 							<div class="card-block">
 								<h4 class="card-title"> <strong>${project.title}</strong></h4>
 								<br>
-								<p class="card-text"> <strong>Description of Project:</strong> ${project.description} </p>
-								<p class="card-text"> <strong>Project Leader:</strong> ${project.leader.firstName} </p>
-								<p class="card-text"> <strong>Delpoyment Date:</strong> ${project.dueDate} </p>
+								<p class="card-text"> <strong>Description:</strong> ${project.description} </p>
+								<p class="card-text"> <strong>Project Lead:</strong> ${project.leader.firstName} </p>
+								<p class="card-text"> <strong>Delpoyment:</strong> ${project.dueDate} </p>
 								<br> 
-								<a href="/projects/${project.id}" class="mb-2 btn btn-outline-primary mx-2 ">More Details</a>
+								<a href="/projects/${project.id}" class="mb-2 btn btn-outline-primary btn-sm mx-2 ">More Details</a>
 								<c:choose>
 										<c:when test="${loggedInUser.id == project.leader.id}">
 											<%-- <form:form action="/projects/${project.id}/delete" method="delete">
@@ -110,12 +110,12 @@
 											</form:form> --%>
 										</c:when>
 										<c:otherwise>
-											<a href="/projects/${project.id}/leave" class="mb-2 btn btn-outline-warning ">Leave Team</a>
+											<a href="/projects/${project.id}/leave" class="mb-2 btn btn-outline-warning btn-sm">Leave Team</a>
 										</c:otherwise>
 									</c:choose>
 							</div>
 						</div>
-				 	</div>
+					</div>
 				</div>
 			</c:if>
 		</c:forEach>

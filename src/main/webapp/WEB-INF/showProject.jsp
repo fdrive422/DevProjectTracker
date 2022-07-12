@@ -81,12 +81,12 @@
 			</div>
 			<div class="d-flex col-9 my-2">
 				<c:if test="${project.projectJoiners.contains(userLoggedIn) || project.leader.id == userLoggedIn.id }">
-				<a href="/projects/${id}/tasks" class="btn btn-outline-primary mx-2">View / Add Tasks</a>
+				<a href="/projects/${id}/tasks" class="btn btn-outline-primary btn-sm mx-2">View / Add Tasks</a>
 					<c:choose>
 					<c:when test="${loggedInUser.id == project.leader.id}">
-						<a href="/projects/${project.id}/edit" class="btn btn-outline-primary mx-2">Edit Project</a>
+						<a href="/projects/${project.id}/edit" class="btn btn-outline-primary btn-sm mx-2">Edit Project</a>
 					<form:form action="/projects/${project.id}/delete" method="delete">
-						<input type="submit" value="Close Project" class="mx-2 btn btn-outline-danger">
+						<input type="submit" value="Close Project" class="mx-2 btn btn-outline-danger btn-sm">
 					</form:form>
 					</c:when>
 					</c:choose>

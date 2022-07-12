@@ -19,35 +19,35 @@ import javax.validation.constraints.Size;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name="tasks")
+@Table(name = "tasks")
 
 public class Task {
 
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    
-    @NotEmpty(message="Task description required!")
-    @Size(min=5, max=200, message="Task description must be be at least 5 characters")
-    private String ticket;
-    
-    @Column(updatable=false)
-    @DateTimeFormat(pattern="yyyy-MM-dd hh:mm:ss")
-    private Date createdAt;
-    @DateTimeFormat(pattern="yyyy-MM-dd hh:mm:ss")
-    private Date updatedAt;
-    
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
-    private User creator;
-    
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "project_id")
-    private Project projectTask;
-    
-    public Task() {
-    	
-    }
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+
+	@NotEmpty(message = "Task description required!")
+	@Size(min = 5, max = 200, message = "Task description must be be at least 5 characters")
+	private String ticket;
+
+	@Column(updatable = false)
+	@DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
+	private Date createdAt;
+	@DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
+	private Date updatedAt;
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "user_id")
+	private User creator;
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "project_id")
+	private Project projectTask;
+
+	public Task() {
+
+	}
 
 	public Long getId() {
 		return id;
@@ -96,14 +96,15 @@ public class Task {
 	public void setProjectTask(Project projectTask) {
 		this.projectTask = projectTask;
 	}
-    
+
 	@PrePersist
-    protected void onCreate(){
-            this.createdAt = new Date();
-    }
-    @PreUpdate
-    protected void onUpdate(){
-            this.updatedAt = new Date();
-    }
+	protected void onCreate() {
+		this.createdAt = new Date();
+	}
+
+	@PreUpdate
+	protected void onUpdate() {
+		this.updatedAt = new Date();
+	}
 
 }

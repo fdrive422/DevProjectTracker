@@ -75,7 +75,7 @@
 						class="form-control" />
 				</div>
 				<p class="d-flex col-9 my-2">
-					<input type="submit" value="Add Task" class="btn btn-outline-primary">
+					<input type="submit" value="Add Task" class="btn btn-outline-primary btn-sm">
 				</p>
 			</form:form>
 		</div>
@@ -100,7 +100,7 @@
 								test="${task.creator.id == loggedInUser.id || project.leader.id == loggedInUser.id}">
 									<form:form action="/projects/${project.id}/tasks/${task.id}/delete" method="delete">
 										<input type="submit" class="form-check-input" type="checkbox" value="" id="formCheckDefault">
- 										<label class="form-check-label" for="formCheckDefault"></label>Complete 
+										<label class="form-check-label" for="formCheckDefault"></label>Complete 
 									</form:form>
 							</c:if>
 						</td>

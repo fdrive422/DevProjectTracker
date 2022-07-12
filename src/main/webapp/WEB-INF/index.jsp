@@ -46,7 +46,7 @@
                     <form:errors path="confirm" class="text-danger"/>
                     <form:password path="confirm" class="form-control"/>
                     <p class="pt-3">
-                        <input type="submit" value="Register" class="btn btn-outline-dark">
+                        <input type="submit" value="Register" class="btn btn-outline-dark btn-sm">
                     </p>
                 </form:form>
             </div>
@@ -60,7 +60,7 @@
                     <form:errors path="userPassword" class="text-danger"/>
                     <form:password path="userPassword" class="form-control"/>
                     <p class="pt-3">
-                        <input type="submit" value="Login" class="btn btn-outline-dark">
+                        <input type="submit" value="Login" class="btn btn-outline-dark btn-sm">
                     </p>
                 </form:form>
             </div>

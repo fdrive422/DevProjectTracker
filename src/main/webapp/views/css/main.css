@@ -1,17 +1,28 @@
 /* generated background gradient via https://htmlcheatsheet.com/css/ */
 .body-bg {
-	background: #5A7896;
-	background: -moz-linear-gradient(left, #B9B9B9 48%, #5A7896 100%);
-	background: -webkit-linear-gradient(left, #B9B9B9 48%, #5A7896 100%);
-	background: linear-gradient(to right, #B9B9B9 48%, #5A7896 100%);
-	font-family: Helvetica, sans-serif;
+	background-color: #e2ebf0;
+	/* background: #5a7896;
+	background: -moz-linear-gradient(left, #b9b9b9 48%, #5a7896 100%);
+	background: -webkit-linear-gradient(left, #b9b9b9 48%, #5a7896 100%);
+	background: linear-gradient(to right, #b9b9b9 48%, #5a7896 100%); */
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
 
 .card-bg {
-	background: #1C6EA4;
-	background: -moz-linear-gradient(45deg, #1C6EA4 0%, #2388CB 50%, #144E75 100%);
-	background: -webkit-linear-gradient(45deg, #1C6EA4 0%, #2388CB 50%, #144E75 100%);
-	background: linear-gradient(45deg, #1C6EA4 0%, #2388CB 50%, #144E75 100%);
+	background: #1c6ea4;
+	background: -moz-linear-gradient(
+		45deg,
+		#1c6ea4 0%,
+		#2388cb 50%,
+		#144e75 100%
+	);
+	background: -webkit-linear-gradient(
+		45deg,
+		#1c6ea4 0%,
+		#2388cb 50%,
+		#144e75 100%
+	);
+	background: linear-gradient(45deg, #1c6ea4 0%, #2388cb 50%, #144e75 100%);
 	font-family: Helvetica, sans-serif;
 }
 
@@ -20,10 +31,10 @@
 }
 
 .card {
-	border: none; 
+	border: none;
 	transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
 	overflow: hidden;
-	border-radius: 20px;
+	/* border-radius: 20px; */
 	min-height: 350px;
 	box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.2);
 }
@@ -39,17 +50,18 @@
 }
 
 .sml-card {
+	position: relative;
 	border: none;
 	transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
 	overflow: hidden;
 	border-radius: 20px;
-	height: 450px;
+	height: 375px;
 	width: 350px;
 	box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.2);
 }
 
 .border {
-	border-color: #2D4F85;
+	border-color: #2d4f85;
 }
 
 .nav {

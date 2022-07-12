@@ -59,43 +59,42 @@
 			</div>
 		</div>
 		<div class="col-12 mx-auto">
-        	<form:form action="/projects/create" method="post" modelAttribute="newProject" class="p-4 bg-transparent text-dark">
+			<form:form action="/projects/create" method="post" modelAttribute="newProject" class="p-4 bg-transparent text-dark">
                 <div class=" bg-transparent form-group">
-                		<form:label path="title" class="py-2">Project Title: </form:label>
-                    	<form:errors path="title" class="text-danger"/>
-                		<form:input path="title" class="form-control"/>
-                </div>
-                <div class="form-group">
-                		<form:label path="description" class="py-2">Project Description: </form:label>
-                    	<form:errors path="description" class="text-danger"/>
-                		<form:textarea path="description" class="form-control h-25" rows="3"/>
-                </div>
-   				<div class="form-group">
-                		<form:label path="language" class="py-2">Project Language: </form:label>
-                    	<form:errors path="language" class="text-danger"/>
-                		<form:input path="language" class="form-control h-25" rows="3"/>
-                </div>
-           		<div class="form-group">
-                		<form:label path="phase" class="py-2">Project Phase: </form:label>
-                    	<form:errors path="phase" class="text-danger"/>
-                		<form:input path="phase" class="form-control h-25" rows="3"/>
-                		
-                </div>
-                <div class="form-group">
-                		<form:label path="dueDate" class="py-2">Deployment Date: </form:label>
-                    	<form:errors path="dueDate" class="text-danger"/>
-                 		<form:input type="text" path="dueDate" id="datefield" class="date form-control"/>
-                	<div>
-                		<form:errors path="leader" class="error"/>
-                		<form:input type="hidden" path="leader" value="${loggedInUser.id}" class="form-control"/>
-                	</div>
-                </div>
-                <p class="my-3">
-                	<a href="/projects" class="btn btn-outline-secondary">Cancel</a>
-                	<input type="submit" value="Submit" class="btn btn-outline-primary">
-              	</p>
-          	</form:form>
-     	</div>
+					<form:label path="title" class="py-2">Project Title: </form:label>
+					<form:errors path="title" class="text-danger"/>
+					<form:input path="title" class="form-control"/>
+				</div>
+				<div class="form-group">
+					<form:label path="description" class="py-2">Project Description: </form:label>
+					<form:errors path="description" class="text-danger"/>
+					<form:textarea path="description" class="form-control h-25" rows="3"/>
+				</div>	
+				<div class="form-group">
+					<form:label path="language" class="py-2">Project Language: </form:label>
+					<form:errors path="language" class="text-danger"/>
+					<form:input path="language" class="form-control h-25" rows="3"/>
+				</div>
+				<div class="form-group">
+					<form:label path="phase" class="py-2">Project Phase: </form:label>
+					<form:errors path="phase" class="text-danger"/>
+					<form:input path="phase" class="form-control h-25" rows="3"/>
+				</div>
+				<div class="form-group">
+					<form:label path="dueDate" class="py-2">Deployment Date: </form:label>
+					<form:errors path="dueDate" class="text-danger"/>
+					<form:input type="text" path="dueDate" id="datefield" class="date form-control"/>
+				<div>
+					<form:errors path="leader" class="error"/>
+					<form:input type="hidden" path="leader" value="${loggedInUser.id}" class="form-control"/>
+				</div>
+				</div>
+				<p class="my-3">
+					<a href="/projects" class="btn btn-outline-secondary btn-sm">Cancel</a>
+					<input type="submit" value="Submit" class="btn btn-outline-primary btn-sm">
+				</p>
+			</form:form>
+		</div>
 	</div>
 
 </body>
