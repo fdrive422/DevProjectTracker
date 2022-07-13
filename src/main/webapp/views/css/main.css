@@ -8,7 +8,7 @@
 	font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
 
-.card-bg {
+/* .card-bg {
 	background: #1c6ea4;
 	background: -moz-linear-gradient(
 		45deg,
@@ -24,7 +24,7 @@
 	);
 	background: linear-gradient(45deg, #1c6ea4 0%, #2388cb 50%, #144e75 100%);
 	font-family: Helvetica, sans-serif;
-}
+} */
 
 .wrapper {
 	margin: 10vh;

@@ -35,10 +35,8 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav">
-					<li class="m-1 nav-item"><a class="nav-link"
-						href="/dashboard">DASHBOARD </a></li>
-					<li class="m-1 nav-item"><a class="nav-link"
-						href="/projects/new">ADD PROJECT</a></li>
+					<li class="m-1 nav-item"><a class="nav-link" href="/dashboard">DASHBOARD </a></li>
+					<li class="m-1 nav-item"><a class="nav-link" href="/projects/new">ADD PROJECT</a></li>
 					<li class="m-1 nav-item"><a class="nav-link" href="/">SIGN OUT</a></li>
 				</ul>
 			</div>
@@ -81,7 +79,7 @@
 			</div>
 			<div class="d-flex col-9 my-2">
 				<c:if test="${project.projectJoiners.contains(userLoggedIn) || project.leader.id == userLoggedIn.id }">
-				<a href="/projects/${id}/tasks" class="btn btn-outline-primary btn-sm mx-2">View / Add Tasks</a>
+				<a href="/projects/${id}/tasks" class="btn btn-outline-primary btn-sm mx-2">View Tasks</a>
 					<c:choose>
 					<c:when test="${loggedInUser.id == project.leader.id}">
 						<a href="/projects/${project.id}/edit" class="btn btn-outline-primary btn-sm mx-2">Edit Project</a>

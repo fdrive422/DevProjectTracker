@@ -35,10 +35,8 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav">
-					<li class="m-1 nav-item"><a class="nav-link"
-						href="/dashboard">DASHBOARD </a></li>
-					<li class="m-1 nav-item"><a class="nav-link"
-						href="/projects/new">ADD PROJECT</a></li>
+					<li class="m-1 nav-item"><a class="nav-link" href="/dashboard">DASHBOARD </a></li>
+					<li class="m-1 nav-item"><a class="nav-link" href="/projects/new">ADD PROJECT</a></li>
 					<li class="m-1 nav-item"><a class="nav-link" href="/">SIGN OUT</a></li>
 				</ul>
 			</div>
@@ -99,7 +97,7 @@
 								<h4 class="card-title"> <strong>${project.title}</strong></h4>
 								<br>
 								<p class="card-text"> <strong>Description:</strong> ${project.description} </p>
-								<p class="card-text"> <strong>Project Lead:</strong> ${project.leader.firstName} </p>
+								<p class="card-text"> <strong>Lead:</strong> ${project.leader.firstName} </p>
 								<p class="card-text"> <strong>Delpoyment:</strong> ${project.dueDate} </p>
 								<br> 
 								<a href="/projects/${project.id}" class="mb-2 btn btn-outline-primary btn-sm mx-2 ">More Details</a>
