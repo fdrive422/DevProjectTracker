@@ -24,7 +24,7 @@
 	<div class="card container bg-transparent my-5">
 		<div class="text-center">
 			<h1 class="text-dark mt-5">Developer Project Tracker</h1>
-			<h3>Track that status of a developers project through deployment</h3>
+			<h3>Track the status of your project through deployment</h3>
 		</div>
         <div class="row justify-content-around my-2 gy-3">
             <div class="col-12 col-md-4">

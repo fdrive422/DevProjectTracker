@@ -24,35 +24,35 @@ import javax.validation.constraints.Size;
 //import org.springframework.scheduling.config.Task;
 
 @Entity
-@Table(name="projects")
+@Table(name = "projects")
 
 public class Project {
-	
+
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    
-    @NotEmpty(message="Project Title is required!")
-    @Size(min=2, max=200, message="Title must be be at least 2 characters")
-    private String title;
-    
-    @NotEmpty(message="Project Description is required!")
-    @Size(min=5, max=200, message="Descrioption must be be at least 5 characters")
-    private String description;
-    
-    @NotEmpty(message="Program Lanaguge is required!")
-    @Size(min=2, max=200, message="Languge must be be at least 2 characters")
-    private String language;
-    
-    @NotEmpty(message="Program Phase is required!")
-    @Size(min=2, max=200, message="Phase must be be at least 2 characters")
-    private String phase;
-    
-    @NotEmpty(message="Date is required!")
-    
-    private String dueDate;
-    
-    public String getLanguage() {
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+
+	@NotEmpty(message = "Project Title is required!")
+	@Size(min = 2, max = 200, message = "Title must be be at least 2 characters")
+	private String title;
+
+	@NotEmpty(message = "Project Description is required!")
+	@Size(min = 5, max = 200, message = "Descrioption must be be at least 5 characters")
+	private String description;
+
+	@NotEmpty(message = "Program Lanaguge is required!")
+	@Size(min = 2, max = 200, message = "Languge must be be at least 2 characters")
+	private String language;
+
+	@NotEmpty(message = "Program Phase is required!")
+	@Size(min = 2, max = 200, message = "Phase must be be at least 2 characters")
+	private String phase;
+
+	@NotEmpty(message = "Date is required!")
+
+	private String dueDate;
+
+	public String getLanguage() {
 		return language;
 	}
 
@@ -67,28 +67,25 @@ public class Project {
 	public void setPhase(String phase) {
 		this.phase = phase;
 	}
-	@Column(updatable=false)
-    private Date createdAt;
-    private Date updatedAt;
-    
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
-    private User leader;
-    
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(
-    		name = "joins",
-    		joinColumns = @JoinColumn(name = "project_id"),
-    		inverseJoinColumns = @JoinColumn(name = "user_id")
-    		)
-    private List<User> projectJoiners;
-    
-    @OneToMany(mappedBy = "projectTask", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Task> tasks;
-    
-    public Project() {
-    	
-    }
+
+	@Column(updatable = false)
+	private Date createdAt;
+	private Date updatedAt;
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "user_id")
+	private User leader;
+
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name = "joins", joinColumns = @JoinColumn(name = "project_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
+	private List<User> projectJoiners;
+
+	@OneToMany(mappedBy = "projectTask", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private List<Task> tasks;
+
+	public Project() {
+
+	}
 
 	public Long getId() {
 		return id;
@@ -137,7 +134,7 @@ public class Project {
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
-    
+
 	public User getLeader() {
 		return leader;
 	}
@@ -145,7 +142,7 @@ public class Project {
 	public void setLeader(User leader) {
 		this.leader = leader;
 	}
-	
+
 	public List<User> getProjectJoiners() {
 		return projectJoiners;
 	}
@@ -153,7 +150,7 @@ public class Project {
 	public void setProjectJoiners(List<User> projectJoiners) {
 		this.projectJoiners = projectJoiners;
 	}
-	
+
 	public List<Task> getTasks() {
 		return tasks;
 	}
@@ -163,12 +160,13 @@ public class Project {
 	}
 
 	@PrePersist
-    protected void onCreate(){
-            this.createdAt = new Date();
-    }
-    @PreUpdate
-    protected void onUpdate(){
-            this.updatedAt = new Date();
-    }
+	protected void onCreate() {
+		this.createdAt = new Date();
+	}
+
+	@PreUpdate
+	protected void onUpdate() {
+		this.updatedAt = new Date();
+	}
 
 }

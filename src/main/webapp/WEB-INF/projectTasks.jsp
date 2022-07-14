@@ -47,11 +47,16 @@
 
 	<div class="card container mt-4 mb-4 p-4 bg-transparent">
 		<div class="d-flex col-12 mx-auto justify-content-between">
-			<div class="">
-				<h2>Project Task</h2>
-				<br>
-				<h5>Project Title: <c:out value="${project.title}" /></h5>
-				<h5>Project Leader: <c:out value="${project.leader.firstName}" /></h5>
+			<div class="row">
+				<h3>Open Task List</h3>
+				<div class="mt-4 row">
+					<div class="col-sm-3"><h6>Project Title:</h6></div>
+					<div class="col-sm-5"><h6>${project.title}</h6></div>
+				</div>
+				<div class="mt-2 row">
+					<div class="col-sm-3"><h6>Project Lead By:</h6></div>
+					<div class="col-sm-5"><h6>${project.leader.firstName} ${project.leader.lastName}</h6></div>
+				</div>
 			</div>
 		</div>
 		<div class="col-12 mx-auto">
@@ -73,7 +78,7 @@
 						class="form-control" />
 				</div>
 				<p class="d-flex col-9 my-2">
-					<input type="submit" value="Add Task" class="btn btn-outline-primary btn-sm">
+					<input type="submit" value="Add Task" class="btn btn-outline-primary mt-1 btn-sm">
 				</p>
 			</form:form>
 		</div>

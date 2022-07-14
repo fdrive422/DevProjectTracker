@@ -50,41 +50,41 @@
 		</div>
 		<div class="my-3 row align-items-center">
 			<div class="row g-3 mx-2 my-2">
-				<div class="col-3"> <h5>Project Title:</h5> </div>
+				<div class="col-3"> <h6>Project Title:</h6> </div>
 				<div class="col-6">${project.title}</div>
 			</div>
 			<div class="row g-3 mx-2 my-2">
-				<div class="col-3"> <h5>Description:</h5> </div>
+				<div class="col-3"> <h6>Description:</h6> </div>
 				<div class="col-6">${project.description}</div>
 			</div>
 			<div class="row g-3 mx-2 my-2">
-				<div class="col-3"> <h5>Project Lead:</h5> </div>
+				<div class="col-3"> <h6>Team Lead:</h6> </div>
 				<div class="col-6">${project.leader.firstName} ${project.leader.lastName}</div>
 			</div>
 			<div class="row g-3 mx-2 my-2">
-				<div class="col-3"> <h5>Project ID:</h5> </div>
-				<div class="col-6">#${project.id}-${project.leader.lastName}</div>
+				<div class="col-3"> <h6>Project ID:</h6> </div>
+				<div class="col-6">#00${project.id}-${project.leader.lastName}</div>
 			</div>
 			<div class="row g-3 mx-2 my-2">
-				<div class="col-3"> <h5>Programing Language:</h5> </div>
+				<div class="col-3"> <h6>Programing Language:</h6> </div>
 				<div class="col-6">${project.language}</div>
 			</div>
 			<div class="row g-3 mx-2 my-2">
-				<div class="col-3"><h5>Project Phase:</h5> </div>
+				<div class="col-3"><h6>Project Phase:</h6> </div>
 				<div class="col-6"> ${project.phase}, as of <fmt:formatDate type="both" dateStyle="medium" timeStyle="short" value="${project.updatedAt}"/></div>
 			</div>
 			<div class="row g-3 mx-2 my-2">
-				<div class="col-3"> <h5>Deployment Date:</h5> </div>
+				<div class="col-3"> <h6>Deployment Date:</h6> </div>
 				<div class="col-6">${project.dueDate}</div>
 			</div>
 			<div class="d-flex col-9 my-2">
 				<c:if test="${project.projectJoiners.contains(userLoggedIn) || project.leader.id == userLoggedIn.id }">
-				<a href="/projects/${id}/tasks" class="btn btn-outline-primary btn-sm mx-2">View Tasks</a>
+				<a href="/projects/${id}/tasks" class="btn btn-outline-primary btn-sm mt-4 mx-2">View | Add Tasks</a>
 					<c:choose>
 					<c:when test="${loggedInUser.id == project.leader.id}">
-						<a href="/projects/${project.id}/edit" class="btn btn-outline-primary btn-sm mx-2">Edit Project</a>
+						<a href="/projects/${project.id}/edit" class="btn btn-outline-primary btn-sm mt-4 mx-2">Edit Project</a>
 					<form:form action="/projects/${project.id}/delete" method="delete">
-						<input type="submit" value="Close Project" class="mx-2 btn btn-outline-danger btn-sm">
+						<input type="submit" value="Close Project" class="mx-2 btn btn-outline-danger btn-sm mt-4">
 					</form:form>
 					</c:when>
 					</c:choose>

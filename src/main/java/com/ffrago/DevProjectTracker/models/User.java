@@ -25,55 +25,51 @@ import javax.validation.constraints.Size;
 //import org.springframework.scheduling.config.Task;
 
 @Entity
-@Table(name="users")
+@Table(name = "users")
 public class User {
-	
+
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    
-    @NotEmpty(message="First name is required!")
-    @Size(min=2, max=200, message="First name must be be at least 2 characters")
-    private String firstName;
-    
-    @NotEmpty(message="Last name is required!")
-    @Size(min=2, max=200, message="Last name must be be at least 2 characters")
-    private String lastName;
-    
-    @NotEmpty(message="Email is required!")
-    @Email(message="Please enter a valid email!")
-    private String email;
-    
-    @NotEmpty(message="Password is required!")
-    @Size(min=8, max=200, message="Password must be at least 8 characters")
-    private String password;
-    
-    @Transient
-    @NotEmpty(message="Confirm Password is required!")
-    @Size(min=8, max=200, message="Confirm Password must be at least 8 characters")
-    private String confirm;
-    
-    @Column(updatable=false)
-    private Date createdAt;
-    private Date updatedAt;
-    
-    @OneToMany(mappedBy = "leader", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Project> projects;
-    
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(
-    		name ="joins",
-    		joinColumns = @JoinColumn(name = "user_id"),
-    		inverseJoinColumns = @JoinColumn(name = "project_id")
-    		)
-    private List<Project> joinProjects;
-    
-    @OneToMany(mappedBy = "creator", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Task> tasks;
-    
-    public User() {
-    	
-    }
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+
+	@NotEmpty(message = "First name is required!")
+	@Size(min = 2, max = 200, message = "First name must be be at least 2 characters")
+	private String firstName;
+
+	@NotEmpty(message = "Last name is required!")
+	@Size(min = 2, max = 200, message = "Last name must be be at least 2 characters")
+	private String lastName;
+
+	@NotEmpty(message = "Email is required!")
+	@Email(message = "Please enter a valid email!")
+	private String email;
+
+	@NotEmpty(message = "Password is required!")
+	@Size(min = 8, max = 200, message = "Password must be at least 8 characters")
+	private String password;
+
+	@Transient
+	@NotEmpty(message = "Confirm Password is required!")
+	@Size(min = 8, max = 200, message = "Confirm Password must be at least 8 characters")
+	private String confirm;
+
+	@Column(updatable = false)
+	private Date createdAt;
+	private Date updatedAt;
+
+	@OneToMany(mappedBy = "leader", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private List<Project> projects;
+
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name = "joins", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "project_id"))
+	private List<Project> joinProjects;
+
+	@OneToMany(mappedBy = "creator", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private List<Task> tasks;
+
+	public User() {
+
+	}
 
 	public Long getId() {
 		return id;
@@ -138,7 +134,7 @@ public class User {
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
-	
+
 	public List<Project> getProjects() {
 		return projects;
 	}
@@ -146,7 +142,6 @@ public class User {
 	public void setProjects(List<Project> projects) {
 		this.projects = projects;
 	}
-	
 
 	public List<Project> getJoinProjects() {
 		return joinProjects;
@@ -155,7 +150,7 @@ public class User {
 	public void setJoinProjects(List<Project> joinProjects) {
 		this.joinProjects = joinProjects;
 	}
-	
+
 	public List<Task> getTasks() {
 		return tasks;
 	}
@@ -165,12 +160,13 @@ public class User {
 	}
 
 	@PrePersist
-    protected void onCreate(){
-            this.createdAt = new Date();
-    }
-    @PreUpdate
-    protected void onUpdate(){
-            this.updatedAt = new Date();
-    }
+	protected void onCreate() {
+		this.createdAt = new Date();
+	}
+
+	@PreUpdate
+	protected void onUpdate() {
+		this.updatedAt = new Date();
+	}
 
 }

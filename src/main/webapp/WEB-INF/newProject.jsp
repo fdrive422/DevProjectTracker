@@ -42,7 +42,7 @@
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav">
 					<li class="m-1 nav-item"><a class="nav-link" href="/dashboard">DASHBOARD </a></li>
-					<li class="m-1 nav-item"><a class="nav-link" href="/projects/new">ADD PROJECT</a></li>
+					<li class="m-1 nav-item"><a class="nav-link disabled" href="/projects/new">ADD PROJECT</a></li>
 					<li class="m-1 nav-item"><a class="nav-link" href="/">SIGN OUT</a></li>
 				</ul>
 			</div>
@@ -89,7 +89,7 @@
 				</div>
 				<p class="my-3">
 					<a href="/projects" class="btn btn-outline-secondary btn-sm">Cancel</a>
-					<input type="submit" value="Submit" class="btn btn-outline-primary btn-sm">
+					<input type="submit" value="Submit" class="btn btn-outline-primary btn-sm mx-1 my-3">
 				</p>
 			</form:form>
 		</div>
