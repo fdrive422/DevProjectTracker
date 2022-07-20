@@ -35,9 +35,12 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav">
-					<li class="m-1 nav-item"><a class="nav-link" href="/dashboard">DASHBOARD </a></li>
+					<%-- <li class="m-1 nav-item"><a class="nav-link" href="/dashboard">DASHBOARD </a></li>
 					<li class="m-1 nav-item"><a class="nav-link" href="/projects/new">ADD PROJECT</a></li>
-					<li class="m-1 nav-item"><a class="nav-link" href="/">SIGN OUT</a></li>
+					<li class="m-1 nav-item"><a class="nav-link" href="/">SIGN OUT</a></li> --%>
+					<li class="nav-item mx-3"><a class="nav-link" href="/dashboard"><img src="/views/img/home.svg"> </a></li>
+					<li class="nav-item mx-3"><a class="nav-link" href="/projects/new"><img src="/views/img/plus-circle.svg"> </a></li>
+					<li class="nav-item mx-3"><a class="nav-link" href="/"><img src="/views/img/log-out.svg"> </a></li>
 				</ul>
 			</div>
 		</nav>
@@ -63,7 +66,7 @@
 			</div>
 			<div class="row g-3 mx-2 my-2">
 				<div class="col-3"> <h6>Project ID:</h6> </div>
-				<div class="col-6">#00${project.id}-${project.leader.lastName}</div>
+				<div class="col-6">#00${project.id}-${project.leader.firstName}</div>
 			</div>
 			<div class="row g-3 mx-2 my-2">
 				<div class="col-3"> <h6>Programing Language:</h6> </div>

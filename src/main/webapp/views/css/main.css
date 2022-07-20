@@ -1,8 +1,15 @@
+body,
+html {
+	height: 100%;
+	width: 100%;
+}
+
 /* generated background gradient via https://htmlcheatsheet.com/css/ */
 .body-bg {
 	background-color: #e2ebf0;
-	/* THEME - Mountain Rock */
-	/* background-image: linear-gradient(to right, #a6abae 0%, #e2ebf0 100%); */
+	/* THEME - Milkyway */
+	/* background-image: linear-gradient(to top, #a6abae 0%, #e2ebf0 100%); */
+	/* background-image: linear-gradient(to top, #243949 0%, #517fa4 100%); */
 	font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
 
@@ -30,11 +37,12 @@
 }
 
 .sml-card {
+	/* background-color: #d0dae0; */
 	position: relative;
 	border: none;
 	transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
 	overflow: hidden;
-	border-radius: 20px;
+	border-radius: 10px;
 	height: 375px;
 	width: 350px;
 	box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.2);
@@ -46,4 +54,24 @@
 
 .nav {
 	box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.2);
+}
+
+.shimmer {
+	background-image: linear-gradient(
+		-60deg,
+		transparent,
+		transparent 40%,
+		#ffffff44 40%,
+		#ffffff44 60%,
+		transparent 60%,
+		transparent 100%
+	);
+	background-size: 200% 100%;
+	background-repeat: no-repeat;
+	background-position-x: 150%;
+}
+
+.shimmer:hover {
+	background-position-x: -150%;
+	transition: background-position-x 600ms;
 }

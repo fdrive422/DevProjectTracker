@@ -35,9 +35,12 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav">
-					<li class="m-1 nav-item"><a class="nav-link" href="/dashboard">DASHBOARD </a></li>
+					<%-- <li class="m-1 nav-item"><a class="nav-link" href="/dashboard">DASHBOARD </a></li>
 					<li class="m-1 nav-item"><a class="nav-link" href="/projects/new">ADD PROJECT</a></li>
-					<li class="m-1 nav-item"><a class="nav-link" href="/">SIGN OUT</a></li>
+					<li class="m-1 nav-item"><a class="nav-link" href="/">SIGN OUT</a></li> --%>
+					<li class="nav-item mx-3"><a class="nav-link" href="/dashboard"><img src="/views/img/home.svg"> </a></li>
+					<li class="nav-item mx-3"><a class="nav-link" href="/projects/new"><img src="/views/img/plus-circle.svg"> </a></li>
+					<li class="nav-item mx-3"><a class="nav-link" href="/"><img src="/views/img/log-out.svg"> </a></li>
 				</ul>
 
 			</div>
@@ -52,6 +55,7 @@
 				<div class="mt-4 row">
 					<div class="col-sm-3"><h6>Project Title:</h6></div>
 					<div class="col-sm-5"><h6>${project.title}</h6></div>
+					<%-- <div class="col-sm-5"><h6><a class="text-decoration-none" href="projects/${project.id}"><c:out value="${project.title}" /></a></h6></div> --%>
 				</div>
 				<div class="mt-2 row">
 					<div class="col-sm-3"><h6>Project Lead By:</h6></div>
@@ -63,7 +67,7 @@
 			<form:form action="/projects/${id}/tasks/create" method="post"
 				modelAttribute="newTask" class="p-4 bg-transparent text-dark">
 				<div class="form-group">
-					<form:label path="ticket" class="">Add a task / feature to project scope: </form:label>
+					<form:label path="ticket" class="">Add a task / feature to the scope of this project: </form:label>
 					<form:errors path="ticket" class="text-danger" />
 					<form:textarea path="ticket" class="form-control bg-light" />
 				</div>
