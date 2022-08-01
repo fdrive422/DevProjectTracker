@@ -101,7 +101,7 @@
 								<br>
 								<p class="card-text"> <strong>Description:</strong> ${project.description} </p>
 								<p class="card-text"> <strong>Lead:</strong> ${project.leader.firstName} </p>
-								<p class="card-text"> <strong>Delpoyment:</strong> ${project.dueDate} </p>
+								<p class="card-text"> <strong>Deployment:</strong> ${project.dueDate} </p>
 								<br> 
 								<a href="/projects/${project.id}" class="mb-2 btn btn-outline-primary btn-sm mx-2 ">More Details</a>
 								<c:choose>
