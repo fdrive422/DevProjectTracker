@@ -82,7 +82,7 @@
 						class="form-control" />
 				</div>
 				<p class="d-flex col-9 my-2">
-					<input type="submit" value="Add Task" class="btn btn-outline-primary mt-1 btn-sm">
+					<input type="submit" value="Add Task" class="shimmer shimmer:hover btn btn-outline-primary mt-1 btn-sm">
 				</p>
 			</form:form>
 		</div>

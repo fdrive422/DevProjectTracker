@@ -103,7 +103,7 @@
 								<p class="card-text"> <strong>Lead:</strong> ${project.leader.firstName} </p>
 								<p class="card-text"> <strong>Deployment:</strong> ${project.dueDate} </p>
 								<br> 
-								<a href="/projects/${project.id}" class="mb-2 btn btn-outline-primary btn-sm mx-2 ">More Details</a>
+								<a href="/projects/${project.id}" class="mb-2 btn btn-outline-primary shimmer shimmer:hover btn-sm mx-2 ">More Details</a>
 								<c:choose>
 										<c:when test="${loggedInUser.id == project.leader.id}">
 											<%-- <form:form action="/projects/${project.id}/delete" method="delete">
@@ -111,7 +111,7 @@
 											</form:form> --%>
 										</c:when>
 										<c:otherwise>
-											<a href="/projects/${project.id}/leave" class="mb-2 btn btn-outline-secondary btn-sm">Leave Team</a>
+											<a href="/projects/${project.id}/leave" class="mb-2 btn btn-outline-secondary shimmer shimmer:hover btn-sm">Leave Team</a>
 										</c:otherwise>
 									</c:choose>
 							</div>

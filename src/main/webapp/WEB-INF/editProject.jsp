@@ -94,8 +94,8 @@
 					<form:input type="hidden" path="leader" value="${loggedInUser.id}"
 						class="form-control" />
 				</div>
-					<a href="/projects" class="btn btn-outline-secondary btn-sm">Cancel</a>
-					<input type="submit" value="Update" class="btn btn-outline-primary btn-sm mx-1 my-3">
+					<a href="/projects" class="shimmer shimmer:hover btn btn-outline-secondary btn-sm">Cancel</a>
+					<input type="submit" value="Update" class="btn btn-outline-primary shimmer shimmer:hover btn-sm mx-1 my-3">
 
 			</form:form>
 		</div>

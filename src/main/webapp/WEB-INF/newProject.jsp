@@ -91,8 +91,8 @@
 				</div>
 				</div>
 				<p class="my-3">
-					<a href="/projects" class="btn btn-outline-secondary btn-sm">Cancel</a>
-					<input type="submit" value="Submit" class="btn btn-outline-primary btn-sm mx-1 my-3">
+					<a href="/projects" class="shimmer shimmer:hover btn btn-outline-secondary btn-sm">Cancel</a>
+					<input type="submit" value="Submit" class="shimmer shimmer:hover btn btn-outline-primary btn-sm mx-1 my-3">
 				</p>
 			</form:form>
 		</div>
