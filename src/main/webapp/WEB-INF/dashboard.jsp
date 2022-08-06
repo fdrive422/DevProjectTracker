@@ -38,9 +38,9 @@
 					<%-- <li class="m-1 nav-item"><a class="nav-link" href="/dashboard">DASHBOARD </a></li>
 					<li class="m-1 nav-item"><a class="nav-link" href="/projects/new">ADD PROJECT</a></li>
 					<li class="m-1 nav-item"><a class="nav-link" href="/">SIGN OUT</a></li> --%>
-					<li class="nav-item mx-3"><a class="nav-link" href="/dashboard"><img src="/views/img/home.svg"> </a></li>
-					<li class="nav-item mx-3"><a class="nav-link" href="/projects/new"><img src="/views/img/plus-circle.svg"></a></li>
-					<li class="nav-item mx-3"><a class="nav-link" href="/"><img src="/views/img/log-out.svg"> </a></li>
+					<li class="nav-item mx-3"><a class="nav-link" href="/dashboard"><img src="/views/img/home.svg" title="Dashboard"></a></li>
+					<li class="nav-item mx-3"><a class="nav-link" href="/projects/new"><img src="/views/img/plus-circle.svg" title="Add Project"></a></li>
+					<li class="nav-item mx-3"><a class="nav-link" href="/"><img src="/views/img/log-out.svg" title="Sign-Out"></a></li>
 				</ul>
 			</div>
 		</nav>
@@ -67,14 +67,14 @@
 			<tbody>
 				<c:forEach items="${projects}" var="project">
 					<tr class="bg-transparent text-dark">
-						<td><a class="text-decoration-none" href="projects/${project.id}"><c:out value="${project.title}" /></a></td>
+						<td><a class="text-decoration-none" href="projects/${project.id}" title="click to see project details"><c:out value="${project.title}"/></a></td>
 						<td>${project.leader.firstName}</td>
 						<td>${project.dueDate}</td>
 						<td><c:if test="${loggedInUser.id != project.leader.id}">
 								<c:choose>
 									<c:when test="${project.projectJoiners.contains(userLoggedIn)}"> </c:when>
 									<c:otherwise>
-										<a class="text-decoration-none" href="/projects/${project.id}/join">Join Team</a>
+										<a class="text-decoration-none" href="/projects/${project.id}/join" title="click to join this project and contribute">Join Project</a>
 									</c:otherwise>
 								</c:choose>
 							</c:if>
@@ -103,7 +103,7 @@
 								<p class="card-text"> <strong>Lead:</strong> ${project.leader.firstName} </p>
 								<p class="card-text"> <strong>Deployment:</strong> ${project.dueDate} </p>
 								<br> 
-								<a href="/projects/${project.id}" class="mb-2 btn btn-outline-primary shimmer shimmer:hover btn-sm mx-2 ">More Details</a>
+								<a href="/projects/${project.id}" class="mb-2 btn btn-outline-primary shimmer shimmer:hover btn-sm mx-2 " title="view project details">More Details</a>
 								<c:choose>
 										<c:when test="${loggedInUser.id == project.leader.id}">
 											<%-- <form:form action="/projects/${project.id}/delete" method="delete">
@@ -111,7 +111,7 @@
 											</form:form> --%>
 										</c:when>
 										<c:otherwise>
-											<a href="/projects/${project.id}/leave" class="mb-2 btn btn-outline-secondary shimmer shimmer:hover btn-sm">Leave Team</a>
+											<a href="/projects/${project.id}/leave" class="mb-2 btn btn-outline-secondary shimmer shimmer:hover btn-sm" title="leave this project">Leave Project</a>
 										</c:otherwise>
 									</c:choose>
 							</div>
