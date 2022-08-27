@@ -67,7 +67,7 @@
 			<tbody>
 				<c:forEach items="${projects}" var="project">
 					<tr class="bg-transparent text-dark">
-						<td><a class="text-decoration-none" href="projects/${project.id}" title="click to see project details"><c:out value="${project.title}"/></a></td>
+						<td><a class="text-decoration-none" href="projects/${project.id}" title="click for project details"><c:out value="${project.title}"/></a></td>
 						<td>${project.leader.firstName}</td>
 						<td>${project.dueDate}</td>
 						<td><c:if test="${loggedInUser.id != project.leader.id}">
