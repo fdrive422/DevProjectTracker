@@ -23,7 +23,7 @@
 
 	<div class="mt-3 text-center ">
 		<div class="mx-4 d-flex justify-content-between align-items-center">
-			<h1>Developer Project Tracker</h1>
+			<h1>Dev Project Tracker</h1>
 			<p class="mx-3"> Welcome, ${loggedInUser.firstName}</p>
 		</div>	
 	<div class="mt-2 mx-4 mb-3 text-center nav">
