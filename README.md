@@ -1,5 +1,5 @@
 # DevProjectTracker
-Dev Project Tracker is an applicaion used to manager software projects from planning to deployment... add projects, update, and manage tasks.
+Dev Project Tracker is an applicaion used to manage software projects from planning to deployment... add projects, update, and manage tasks.
 
 ### <a href="http://35.165.142.51">LIVE DEMO</a>
 Dashboard
