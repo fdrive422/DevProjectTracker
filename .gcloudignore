@@ -1,0 +1,11 @@
+# Files not uploaded to Cloud Build when running `gcloud run deploy --source .`
+# (gitignore syntax; leading "/" anchors to the repo root so app assets under
+#  src/main/webapp/views/img/ are NOT excluded.)
+.git
+target
+/*.pdf
+/*.png
+/*.jpeg
+/*.jpg
+README.md
+DEPLOY.md

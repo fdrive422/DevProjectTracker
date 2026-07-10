@@ -1,101 +1,89 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ page isErrorPage="true"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<!-- for Bootstrap CSS -->
-<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-	crossorigin="anonymous">
-<!-- My CSS -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="/views/js/theme.js"></script>
 <link rel="stylesheet" href="/../views/css/main.css" />
-<title>Show Project</title>
+<title>Project Details · DevProjectTracker</title>
 </head>
 <body class="body-bg">
 
-	<div class="mt-3 text-center ">
-		<div class="mx-4 d-flex justify-content-between align-items-center">
-			<h1>Developer Project Tracker</h1>
-			<p class="mx-3"> Welcome, ${loggedInUser.firstName}</p>
+	<header class="topbar">
+		<div class="topbar-inner">
+			<a href="/dashboard" class="brand"><span class="brand-dot"></span>DevProjectTracker</a>
+			<div class="topbar-spacer"></div>
+			<span class="avatar">${fn:substring(loggedInUser.firstName, 0, 1)}</span>
+			<span class="welcome">Welcome, <strong>${loggedInUser.firstName}</strong></span>
+			<nav class="nav">
+				<a class="nav-link" href="/dashboard" title="Dashboard" aria-label="Dashboard">
+					<svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+				</a>
+				<a class="nav-link" href="/projects/new" title="Add Project" aria-label="Add Project">
+					<svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+				</a>
+				<a class="nav-link" href="/" title="Sign Out" aria-label="Sign Out">
+					<svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+				</a>
+				<button type="button" class="icon-btn" data-theme-toggle aria-label="Toggle theme"></button>
+			</nav>
 		</div>
-	<div class="mt-2 mx-4 mb-3 text-center nav">
-		<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
-			<button class="navbar-toggler" type="button" data-toggle="collapse"
-				data-target="#navbarNav" aria-controls="navbarNav"
-				aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarNav">
-				<ul class="navbar-nav">
-					<%-- <li class="m-1 nav-item"><a class="nav-link" href="/dashboard">DASHBOARD </a></li>
-					<li class="m-1 nav-item"><a class="nav-link" href="/projects/new">ADD PROJECT</a></li>
-					<li class="m-1 nav-item"><a class="nav-link" href="/">SIGN OUT</a></li> --%>
-					<li class="nav-item mx-3"><a class="nav-link" href="/dashboard"><img src="/views/img/home.svg" title="Dashboard"></a></li>
-					<li class="nav-item mx-3"><a class="nav-link" href="/projects/new"><img src="/views/img/plus-circle.svg" title="Add Project"></a></li>
-					<li class="nav-item mx-3"><a class="nav-link" href="/"><img src="/views/img/log-out.svg" title="Sign-Out"></a></li>
-				</ul>
-			</div>
-		</nav>
-	</div>
-	</div>
+	</header>
 
-	<div class="card container mt-4 mb-4 p-4 bg-transparent">
-		<div class="d-flex col-12 mx-auto justify-content-between">
-			<h2 class="text-dark">Project Details</h2>
+	<main class="page">
+		<div class="page-head">
+			<div class="eyebrow">project</div>
+			<h2>Project Details</h2>
 		</div>
-		<div class="my-3 row align-items-center">
-			<div class="row g-3 mx-2 my-2">
-				<div class="col-3"> <h6>Project Title:</h6> </div>
-				<div class="col-6">${project.title}</div>
-			</div>
-			<div class="row g-3 mx-2 my-2">
-				<div class="col-3"> <h6>Description:</h6> </div>
-				<div class="col-6">${project.description}</div>
-			</div>
-			<div class="row g-3 mx-2 my-2">
-				<div class="col-3"> <h6>Team Lead:</h6> </div>
-				<div class="col-6">${project.leader.firstName} ${project.leader.lastName}</div>
-			</div>
-			<div class="row g-3 mx-2 my-2">
-				<div class="col-3"> <h6>Project ID:</h6> </div>
-				<div class="col-6">#00${project.id}-${project.leader.firstName}</div>
-			</div>
-			<div class="row g-3 mx-2 my-2">
-				<div class="col-3"> <h6>Programing Language:</h6> </div>
-				<div class="col-6">${project.language}</div>
-			</div>
-			<div class="row g-3 mx-2 my-2">
-				<div class="col-3"><h6>Project Phase:</h6> </div>
-				<div class="col-6"> ${project.phase}, as of <fmt:formatDate type="both" dateStyle="medium" timeStyle="short" value="${project.updatedAt}"/></div>
-			</div>
-			<div class="row g-3 mx-2 my-2">
-				<div class="col-3"> <h6>Deployment Date:</h6> </div>
-				<div class="col-6">${project.dueDate}</div>
-			</div>
-			<div class="d-flex col-9 my-2">
-				<c:if test="${project.projectJoiners.contains(userLoggedIn) || project.leader.id == userLoggedIn.id }">
-				<a href="/projects/${id}/tasks" class="shimmer shimmer:hover btn btn-outline-primary btn-sm mt-4 mx-2">View | Add Tasks</a>
+
+		<section class="panel">
+			<dl class="detail-grid">
+				<dt>Project Title</dt>
+				<dd>${project.title}</dd>
+
+				<dt>Description</dt>
+				<dd>${project.description}</dd>
+
+				<dt>Team Lead</dt>
+				<dd>${project.leader.firstName} ${project.leader.lastName}</dd>
+
+				<dt>Project ID</dt>
+				<dd class="mono">#00${project.id}-${project.leader.firstName}</dd>
+
+				<dt>Programming Language</dt>
+				<dd>${project.language}</dd>
+
+				<dt>Project Phase</dt>
+				<dd>
+					<span class="chip" data-phase="${project.phase}">${project.phase}</span>
+					<span class="mono" style="color:var(--muted)">as of <fmt:formatDate type="both" dateStyle="medium" timeStyle="short" value="${project.updatedAt}"/></span>
+				</dd>
+
+				<dt>Deployment Date</dt>
+				<dd>${project.dueDate}</dd>
+			</dl>
+
+			<c:if test="${project.projectJoiners.contains(userLoggedIn) || project.leader.id == userLoggedIn.id }">
+				<div class="actions" style="margin-top:24px">
+					<a href="/projects/${id}/tasks" class="btn btn-primary btn-sm shimmer">View | Add Tasks</a>
 					<c:choose>
-					<c:when test="${loggedInUser.id == project.leader.id}">
-						<a href="/projects/${project.id}/edit" class="shimmer shimmer:hover btn btn-outline-primary btn-sm mt-4 mx-2">Edit Project</a>
-					<form:form action="/projects/${project.id}/delete" method="delete">
-						<input type="submit" value="Close Project" class="mx-2 btn btn-outline-danger shimmer shimmer:hover btn-sm mt-4">
-					</form:form>
-					</c:when>
+						<c:when test="${loggedInUser.id == project.leader.id}">
+							<a href="/projects/${project.id}/edit" class="btn btn-secondary btn-sm shimmer">Edit Project</a>
+							<form:form action="/projects/${project.id}/delete" method="delete">
+								<input type="submit" value="Close Project" class="btn btn-danger btn-sm shimmer">
+							</form:form>
+						</c:when>
 					</c:choose>
-				</c:if>
-			</div>	
-		</div>
-	</div>
+				</div>
+			</c:if>
+		</section>
+	</main>
 
 </body>
 </html>
-

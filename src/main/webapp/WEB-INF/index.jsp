@@ -1,73 +1,85 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-    <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-        <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-            <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-                <%@ page isErrorPage="true" %>
-                    <!DOCTYPE html>
-                    <html>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ page isErrorPage="true" %>
+<!DOCTYPE html>
+<html lang="en">
 
-                    <head>
-                        <meta charset="UTF-8">
-                        <!-- for Bootstrap CSS -->
-                        <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
-                        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-                            rel="stylesheet"
-                            integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-                            crossorigin="anonymous">
-                        <!-- My CSS -->
-                        <link rel="stylesheet" href="/../views/css/main.css" />
-                        <title>Registration and Login</title>
-                    </head>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Apply saved theme before first paint (no flash) -->
+	<script src="/views/js/theme.js"></script>
+	<!-- My CSS -->
+	<link rel="stylesheet" href="/../views/css/main.css" />
+	<title>Sign in · DevProjectTracker</title>
+</head>
 
-                    <body class="body-bg">
+<body class="body-bg">
 
-                        <div class="card container bg-transparent my-5">
-                            <div class="text-center">
-                                <h1 class="text-dark mt-5">Developer Project Tracker</h1>
-                                <h3>Track the status of software project through deployment</h3>
-                            </div>
-                            <div class="row justify-content-around my-2 gy-3">
-                                <div class="col-12 col-md-4">
-                                    <form:form action="/register" method="post" modelAttribute="newUser" class="p-4">
-                                        <h2 class="text-register">Register</h2>
-                                        <form:label path="firstName" class="py-2">First Name:</form:label>
-                                        <form:errors path="firstName" class="text-danger" />
-                                        <form:input path="firstName" type="text" class="form-control" />
-                                        <form:label path="lastName" class="py-2">Last Name:</form:label>
-                                        <form:errors path="lastName" class="text-danger" />
-                                        <form:input path="lastName" type="text" class="form-control" />
-                                        <form:label path="email" class="py-2">Email:</form:label>
-                                        <form:errors path="email" class="text-danger" />
-                                        <form:input path="email" type="email" class="form-control" />
-                                        <form:label path="password" class="py-2">Password:</form:label>
-                                        <form:errors path="password" class="text-danger" />
-                                        <form:password path="password" class="form-control" />
-                                        <form:label path="confirm" class="py-2">Confirm Password:</form:label>
-                                        <form:errors path="confirm" class="text-danger" />
-                                        <form:password path="confirm" class="form-control" />
-                                        <p class="pt-3">
-                                            <input type="submit" value="Register"
-                                                class="btn btn-outline-primary btn-sm">
-                                        </p>
-                                    </form:form>
-                                </div>
-                                <div class="col-12 col-md-4">
-                                    <form:form action="/login" method="post" modelAttribute="newLogin" class="p-4">
-                                        <h2 class="text-dark">Login</h2>
-                                        <form:label path="userEmail" class="py-2">Email:</form:label>
-                                        <form:errors path="userEmail" class="text-danger" />
-                                        <form:input path="userEmail" type="email" class="form-control" />
-                                        <form:label path="userPassword" class="py-2">Password:</form:label>
-                                        <form:errors path="userPassword" class="text-danger" />
-                                        <form:password path="userPassword" class="form-control" />
-                                        <p class="pt-3">
-                                            <input type="submit" value="Login" class="btn btn-outline-primary btn-sm">
-                                        </p>
-                                    </form:form>
-                                </div>
-                            </div>
-                        </div>
+	<button type="button" class="icon-btn toggle-floating" data-theme-toggle aria-label="Toggle theme"></button>
 
-                    </body>
+	<main class="auth-wrap">
+		<div class="auth-hero">
+			<div class="eyebrow">dev · project · tracker</div>
+			<h1>Developer Project Tracker</h1>
+			<p>Track the status of software projects through deployment.</p>
+		</div>
 
-                    </html>
+		<div class="auth-grid">
+			<div class="card auth-card">
+				<form:form action="/register" method="post" modelAttribute="newUser" class="form">
+					<h2>Register</h2>
+					<div class="field">
+						<form:label path="firstName">First Name</form:label>
+						<form:errors path="firstName" class="error" />
+						<form:input path="firstName" type="text" class="input" />
+					</div>
+					<div class="field">
+						<form:label path="lastName">Last Name</form:label>
+						<form:errors path="lastName" class="error" />
+						<form:input path="lastName" type="text" class="input" />
+					</div>
+					<div class="field">
+						<form:label path="email">Email</form:label>
+						<form:errors path="email" class="error" />
+						<form:input path="email" type="email" class="input" />
+					</div>
+					<div class="field">
+						<form:label path="password">Password</form:label>
+						<form:errors path="password" class="error" />
+						<form:password path="password" class="input" />
+					</div>
+					<div class="field">
+						<form:label path="confirm">Confirm Password</form:label>
+						<form:errors path="confirm" class="error" />
+						<form:password path="confirm" class="input" />
+					</div>
+					<input type="submit" value="Register" class="btn btn-primary shimmer">
+				</form:form>
+			</div>
+
+			<div class="card auth-card">
+				<form:form action="/login" method="post" modelAttribute="newLogin" class="form">
+					<h2>Login</h2>
+					<div class="field">
+						<form:label path="userEmail">Email</form:label>
+						<form:errors path="userEmail" class="error" />
+						<form:input path="userEmail" type="email" class="input" />
+					</div>
+					<div class="field">
+						<form:label path="userPassword">Password</form:label>
+						<form:errors path="userPassword" class="error" />
+						<form:password path="userPassword" class="input" />
+					</div>
+					<input type="submit" value="Login" class="btn btn-primary shimmer">
+				</form:form>
+			</div>
+		</div>
+	</main>
+
+</body>
+
+</html>

@@ -1,102 +1,90 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ page isErrorPage="true"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<!-- for Bootstrap CSS -->
-<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-	crossorigin="anonymous">
-<!-- My CSS -->
-<link rel="stylesheet" href="/../views/css/main.css"/>
-<!-- For any Bootstrap that uses JS or jQuery-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="/views/js/theme.js"></script>
+<link rel="stylesheet" href="/../views/css/main.css" />
+<!-- CDN datepicker (dueDate is a formatted String) -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet"/>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
-<title>Add Project</title>
+<title>Add Project · DevProjectTracker</title>
 </head>
 
 <body class="body-bg">
 
-	<div class="mt-3 text-center ">
-		<div class="mx-4 d-flex justify-content-between align-items-center">
-			<h1>Developer Project Tracker</h1>
-			<p class="mx-3"> Welcome, ${loggedInUser.firstName}</p>
+	<header class="topbar">
+		<div class="topbar-inner">
+			<a href="/dashboard" class="brand"><span class="brand-dot"></span>DevProjectTracker</a>
+			<div class="topbar-spacer"></div>
+			<span class="avatar">${fn:substring(loggedInUser.firstName, 0, 1)}</span>
+			<span class="welcome">Welcome, <strong>${loggedInUser.firstName}</strong></span>
+			<nav class="nav">
+				<a class="nav-link" href="/dashboard" title="Dashboard" aria-label="Dashboard">
+					<svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+				</a>
+				<a class="nav-link disabled" href="/projects/new" title="Add Project" aria-label="Add Project">
+					<svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+				</a>
+				<a class="nav-link" href="/" title="Sign Out" aria-label="Sign Out">
+					<svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+				</a>
+				<button type="button" class="icon-btn" data-theme-toggle aria-label="Toggle theme"></button>
+			</nav>
 		</div>
-	<div class="mt-2 mx-4 mb-3 text-center nav">
-		<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
-			<button class="navbar-toggler" type="button" data-toggle="collapse"
-				data-target="#navbarNav" aria-controls="navbarNav"
-				aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarNav">
-				<ul class="navbar-nav">
-					<%-- <li class="m-1 nav-item"><a class="nav-link" href="/dashboard">DASHBOARD </a></li>
-					<li class="m-1 nav-item"><a class="nav-link" href="/projects/new">ADD PROJECT</a></li>
-					<li class="m-1 nav-item"><a class="nav-link" href="/">SIGN OUT</a></li> --%>
-					<li class="nav-item mx-3"><a class="nav-link" href="/dashboard"><img src="/views/img/home.svg" title="Dashboard"></a></li>
-					<li class="nav-item mx-3"><a class="nav-link disabled" href="/projects/new"><img src="/views/img/plus-circle.svg" title="Add Project"></a></li>
-					<li class="nav-item mx-3"><a class="nav-link" href="/"><img src="/views/img/log-out.svg" title="Sign-Out"></a></li>
-				</ul>
-			</div>
-		</nav>
-	</div>
-	</div>
+	</header>
 
-	<div class="card container d-flex col-12 mx-auto justify-content-between bg-transparent mt-4 mb-4 p-4">
-		<div class="d-flex col-12 mx-auto justify-content-between">
-			<div class="my-3">
+	<main class="page">
+		<div class="page-head">
+			<div class="eyebrow">new</div>
 			<h2>Add a Project</h2>
-			</div>
 		</div>
-		<div class="col-12 mx-auto">
-			<form:form action="/projects/create" method="post" modelAttribute="newProject" class="p-4 bg-transparent text-dark">
-                <div class=" bg-transparent form-group">
-					<form:label path="title" class="py-2">Project Title: </form:label>
-					<form:errors path="title" class="text-danger"/>
-					<form:input path="title" class="form-control"/>
+
+		<section class="panel">
+			<form:form action="/projects/create" method="post" modelAttribute="newProject" class="form">
+				<div class="field">
+					<form:label path="title">Project Title</form:label>
+					<form:errors path="title" class="error"/>
+					<form:input path="title" class="input"/>
 				</div>
-				<div class="form-group">
-					<form:label path="description" class="py-2">Project Description: </form:label>
-					<form:errors path="description" class="text-danger"/>
-					<form:textarea path="description" class="form-control h-25" rows="3"/>
-				</div>	
-				<div class="form-group">
-					<form:label path="language" class="py-2">Project Language: </form:label>
-					<form:errors path="language" class="text-danger"/>
-					<form:input path="language" class="form-control h-25" rows="3"/>
+				<div class="field">
+					<form:label path="description">Project Description</form:label>
+					<form:errors path="description" class="error"/>
+					<form:textarea path="description" class="textarea" rows="3"/>
 				</div>
-				<div class="form-group">
-					<form:label path="phase" class="py-2">Project Phase: </form:label>
-					<form:errors path="phase" class="text-danger"/>
-					<form:input path="phase" class="form-control h-25" rows="3"/>
+				<div class="field">
+					<form:label path="language">Project Language</form:label>
+					<form:errors path="language" class="error"/>
+					<form:input path="language" class="input"/>
 				</div>
-				<div class="form-group">
-					<form:label path="dueDate" class="py-2">Deployment Date: </form:label>
-					<form:errors path="dueDate" class="text-danger"/>
-					<form:input type="text" path="dueDate" id="datefield" class="date form-control"/>
+				<div class="field">
+					<form:label path="phase">Project Phase</form:label>
+					<form:errors path="phase" class="error"/>
+					<form:input path="phase" class="input"/>
+				</div>
+				<div class="field">
+					<form:label path="dueDate">Deployment Date</form:label>
+					<form:errors path="dueDate" class="error"/>
+					<form:input type="text" path="dueDate" id="datefield" class="date input"/>
+				</div>
 				<div>
 					<form:errors path="leader" class="error"/>
-					<form:input type="hidden" path="leader" value="${loggedInUser.id}" class="form-control"/>
+					<form:input type="hidden" path="leader" value="${loggedInUser.id}"/>
 				</div>
+				<div class="actions" style="margin-top:8px">
+					<a href="/projects" class="btn btn-secondary btn-sm shimmer">Cancel</a>
+					<input type="submit" value="Submit" class="btn btn-primary btn-sm shimmer">
 				</div>
-				<p class="my-3">
-					<a href="/projects" class="shimmer shimmer:hover btn btn-outline-secondary btn-sm">Cancel</a>
-					<input type="submit" value="Submit" class="shimmer shimmer:hover btn btn-outline-primary btn-sm mx-1 my-3">
-				</p>
 			</form:form>
-		</div>
-	</div>
+		</section>
+	</main>
 
 </body>
 

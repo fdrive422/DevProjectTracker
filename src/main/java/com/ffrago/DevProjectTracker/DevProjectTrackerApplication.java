@@ -4,6 +4,7 @@ import org.apache.catalina.connector.Connector;
 import org.apache.coyote.ajp.AbstractAjpProtocol;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
 import org.springframework.context.annotation.Bean;
 
@@ -14,7 +15,11 @@ public class DevProjectTrackerApplication {
 		SpringApplication.run(DevProjectTrackerApplication.class, args);
 	}
 
+	// Extra AJP connector (for fronting by a reverse proxy). Disabled by default —
+	// Cloud Run only routes one port and an unsecured AJP connector is a risk there.
+	// Enable locally/behind a proxy with app.ajp.enabled=true.
 	@Bean
+	@ConditionalOnProperty(name = "app.ajp.enabled", havingValue = "true")
 	public TomcatServletWebServerFactory servletContainer() {
 		TomcatServletWebServerFactory tomcat = new TomcatServletWebServerFactory();
 		Connector ajpConnector = new Connector("AJP/1.3");
