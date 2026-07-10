@@ -19,7 +19,7 @@
 
 	<header class="topbar">
 		<div class="topbar-inner">
-			<a href="/dashboard" class="brand"><span class="brand-dot"></span>DevProjectTracker</a>
+			<a href="/dashboard" class="brand"><span class="brand-dot"></span><span class="brand-text">DevProjectTracker</span></a>
 			<div class="topbar-spacer"></div>
 			<span class="avatar">${fn:substring(loggedInUser.firstName, 0, 1)}</span>
 			<span class="welcome">Welcome, <strong>${loggedInUser.firstName}</strong></span>

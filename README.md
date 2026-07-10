@@ -44,16 +44,16 @@ The UI uses a "warm dev-tool" theme — a cream/coral palette with monospace acc
 
 ## Project Images
 
-![alt text](<Developer Proset Tracker.png>)
+![alt text](<assets/Developer Proset Tracker.png>)
 
-![alt text](<Pasted Graphic 2.png>)
+![alt text](<assets/Pasted Graphic 2.png>)
 
-![alt text](<Pasted Graphic 3.png>)
+![alt text](<assets/Pasted Graphic 3.png>)
 
-![alt text](<Pasted Graphic 4.png>)
+![alt text](<assets/Pasted Graphic 4.png>)
 
-![alt text](<Pasted Graphic 5.png>)
+![alt text](<assets/Pasted Graphic 5.png>)
 
-![alt text](<Pasted Graphic 6.png>)
+![alt text](<assets/Pasted Graphic 6.png>)
 
-![alt text](<Pasted Graphic 7.png>)
+![alt text](<assets/Pasted Graphic 7.png>)

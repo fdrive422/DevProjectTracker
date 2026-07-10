@@ -151,6 +151,29 @@ img { max-width: 100%; }
 .nav-link.disabled { color: var(--accent); background: var(--accent-soft); pointer-events: none; }
 .icon { width: 20px; height: 20px; display: block; }
 .icon-btn { font-size: 17px; line-height: 1; }
+/* Let the brand shrink instead of forcing the row to overflow */
+.brand { min-width: 0; }
+.brand-text { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.nav-link, .icon-btn { flex: none; }
+
+/* ---- Responsive header ------------------------------------ */
+/* Phones / small tablets: drop the "Welcome" text (the avatar still shows who's
+   signed in), tighten spacing, and shrink the icon buttons. */
+@media (max-width: 680px) {
+	.topbar-inner { gap: 10px; padding: 12px 16px; }
+	.welcome { display: none; }
+	.nav { gap: 2px; }
+	.nav-link, .icon-btn { width: 36px; height: 36px; }
+	.icon { width: 18px; height: 18px; }
+	.brand { font-size: 14px; }
+}
+/* Narrow phones: collapse the wordmark to just the logo dot so the four nav
+   buttons always fit on one row without horizontal overflow. */
+@media (max-width: 480px) {
+	.brand-text { display: none; }
+	.topbar-inner { gap: 8px; padding: 10px 14px; }
+	.nav-link, .icon-btn { width: 34px; height: 34px; }
+}
 
 /* ---- Page shell ------------------------------------------- */
 .page { max-width: 1080px; margin-inline: auto; padding: 32px 20px 64px; }
