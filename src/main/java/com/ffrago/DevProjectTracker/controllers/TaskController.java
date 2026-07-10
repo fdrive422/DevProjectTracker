@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -32,6 +34,15 @@ public class TaskController {
 	@Autowired
 	private ProjectService projectService;
 
+	// The task routes carry the PROJECT id as the {id} path variable. Without this,
+	// Spring binds that path variable onto the Task's own "id" field (name collision),
+	// so every task is saved with id = projectId and each new task overwrites the
+	// previous one. Disallow binding "id" onto the newTask command object.
+	@InitBinder("newTask")
+	public void initTaskBinder(WebDataBinder binder) {
+		binder.setDisallowedFields("id");
+	}
+
 	/****** ADD TASK TO PROJECT ******/
 
 	@GetMapping("/projects/{id}/tasks")
@@ -46,7 +57,7 @@ public class TaskController {
 
 			Project project = projectService.showOne(id);
 			viewModel.addAttribute("project", project);
-			viewModel.addAttribute("tasks", project.getTasks());
+			viewModel.addAttribute("tasks", taskService.findByProject(id));
 
 			return "projectTasks.jsp";
 		}

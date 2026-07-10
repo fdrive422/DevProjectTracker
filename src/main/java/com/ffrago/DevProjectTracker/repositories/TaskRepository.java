@@ -12,4 +12,8 @@ public interface TaskRepository extends CrudRepository<Task, Long> {
 
 	List<Task> findAll();
 
+	// All tasks belonging to a project, oldest first — used for the task list so
+	// every task for the project shows (not just a stale lazy collection).
+	List<Task> findByProjectTaskIdOrderByCreatedAtAsc(Long projectId);
+
 }

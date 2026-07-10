@@ -16,8 +16,14 @@ public class TaskService {
 
 	// Get All Tasks
 	public List<Task> getAllTasks() {
-		
+
 		return taskRepository.findAll();
+	}
+
+	// Get all tasks for a given project (oldest first)
+	public List<Task> findByProject(Long projectId) {
+
+		return taskRepository.findByProjectTaskIdOrderByCreatedAtAsc(projectId);
 	}
 	
 	// Create Task

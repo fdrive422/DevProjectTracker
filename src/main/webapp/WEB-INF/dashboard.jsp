@@ -67,6 +67,7 @@
 								<td>${project.leader.firstName}</td>
 								<td>${project.dueDate}</td>
 								<td class="col-actions">
+									<span class="chip mono" title="open tasks">${project.tasks.size()} open ${project.tasks.size() == 1 ? 'task' : 'tasks'}</span>
 									<c:if test="${loggedInUser.id != project.leader.id}">
 										<c:choose>
 											<c:when test="${project.projectJoiners.contains(userLoggedIn)}">

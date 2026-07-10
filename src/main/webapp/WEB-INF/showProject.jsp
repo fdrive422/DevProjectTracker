@@ -62,7 +62,8 @@
 				<dt>Project Phase</dt>
 				<dd>
 					<span class="chip" data-phase="${project.phase}">${project.phase}</span>
-					<span class="mono" style="color:var(--muted)">as of <fmt:formatDate type="both" dateStyle="medium" timeStyle="short" value="${project.updatedAt}"/></span>
+					<c:set var="phaseUpdated" value="${not empty project.updatedAt ? project.updatedAt : project.createdAt}" />
+					<span class="mono" style="color:var(--muted)">last updated <fmt:formatDate type="both" dateStyle="medium" timeStyle="short" value="${phaseUpdated}"/></span>
 				</dd>
 
 				<dt>Deployment Date</dt>

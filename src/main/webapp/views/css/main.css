@@ -157,8 +157,8 @@ img { max-width: 100%; }
 .nav-link, .icon-btn { flex: none; }
 
 /* ---- Responsive header ------------------------------------ */
-/* Phones / small tablets: drop the "Welcome" text (the avatar still shows who's
-   signed in), tighten spacing, and shrink the icon buttons. */
+/* Phones / small tablets: drop the "Welcome" text, tighten spacing, and shrink
+   the icon buttons. The "DevProjectTracker" wordmark stays visible. */
 @media (max-width: 680px) {
 	.topbar-inner { gap: 10px; padding: 12px 16px; }
 	.welcome { display: none; }
@@ -167,12 +167,17 @@ img { max-width: 100%; }
 	.icon { width: 18px; height: 18px; }
 	.brand { font-size: 14px; }
 }
-/* Narrow phones: collapse the wordmark to just the logo dot so the four nav
-   buttons always fit on one row without horizontal overflow. */
+/* Narrow phones: hide the user avatar to make room for the full title + nav. */
 @media (max-width: 480px) {
-	.brand-text { display: none; }
+	.avatar { display: none; }
 	.topbar-inner { gap: 8px; padding: 10px 14px; }
 	.nav-link, .icon-btn { width: 34px; height: 34px; }
+}
+/* Very small phones: shave a little more so the title always fits. */
+@media (max-width: 360px) {
+	.brand { font-size: 13px; }
+	.brand-dot { display: none; }
+	.nav-link, .icon-btn { width: 32px; height: 32px; }
 }
 
 /* ---- Page shell ------------------------------------------- */
