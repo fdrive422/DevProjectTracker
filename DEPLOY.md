@@ -10,8 +10,8 @@ have real free tiers.
 
 | Item | Value |
 | --- | --- |
-| **Live URL** | https://devtrackr.app (custom domain) · https://devprojecttracker-173332298123.us-west1.run.app (Cloud Run) |
-| Custom domain | `devtrackr.app` — registrar **Vercel**, DNS on **Google Cloud DNS** (zone `devtrackr-app`), mapped to Cloud Run; Google-managed TLS |
+| **Live URL** | https://www.devtrackr.app (custom domain) · https://devprojecttracker-173332298123.us-west1.run.app (Cloud Run) |
+| Custom domain | `www.devtrackr.app` — CNAME → `ghs.googlehosted.com`, mapped to Cloud Run, Google-managed TLS. Registrar **Vercel** (DNS stays on Vercel). The bare `devtrackr.app` redirects to `www` (Vercel apex is locked, so it can't point at Cloud Run directly). |
 | GCP project | `devtracker-app-2026` |
 | Cloud Run service | `devprojecttracker` (region `us-west1`) |
 | Supabase host | `aws-0-us-west-1.pooler.supabase.com:5432` (session pooler) |
