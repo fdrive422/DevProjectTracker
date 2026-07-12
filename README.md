@@ -1,6 +1,6 @@
 # DevProjectTracker
 
-**🔗 Live app — https://devprojecttracker-173332298123.us-west1.run.app**
+**🔗 Live app — https://devtrackr.app**
 
 Developer Project Tracker is an application used to manage software projects from planning to deployment... add projects, update, and manage tasks.
 
