@@ -12,12 +12,27 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- Apply saved theme before first paint (no flash) -->
 	<script src="/views/js/theme.js"></script>
+	<!-- Demo notice (applies saved dismissal before first paint) -->
+	<script src="/views/js/demo-banner.js"></script>
 	<!-- My CSS -->
 	<link rel="stylesheet" href="/../views/css/main.css" />
 	<title>Sign in · DevProjectTracker</title>
 </head>
 
-<body class="body-bg">
+<body class="body-bg auth-body">
+
+	<div class="demo-banner" id="demo-banner" role="status">
+		<div class="demo-banner-inner">
+			<span class="demo-banner-icon" aria-hidden="true">&#9888;</span>
+			<p class="demo-banner-text">
+				<strong>Demo application</strong> &mdash; not for production use. Please don't enter real
+				or sensitive data.<span class="demo-banner-note"> This is a portfolio demo; the database
+				may be reset at any time.</span>
+			</p>
+			<button type="button" class="icon-btn demo-banner-close" data-demo-banner-dismiss
+				aria-label="Dismiss demo notice">&times;</button>
+		</div>
+	</div>
 
 	<button type="button" class="icon-btn toggle-floating" data-theme-toggle aria-label="Toggle theme"></button>
 

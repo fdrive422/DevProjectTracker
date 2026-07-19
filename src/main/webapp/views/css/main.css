@@ -22,6 +22,9 @@
 	--danger:      light-dark(oklch(0.55 0.18 25), oklch(0.70 0.15 25));
 	--danger-soft: light-dark(oklch(0.55 0.18 25 / 0.10), oklch(0.70 0.15 25 / 0.16));
 
+	--warn:      light-dark(oklch(0.60 0.13 85), oklch(0.80 0.13 90));
+	--warn-soft: light-dark(oklch(0.60 0.13 85 / 0.14), oklch(0.80 0.13 90 / 0.16));
+
 	--shadow: light-dark(0 1px 2px rgba(41, 37, 36, .06), 0 1px 2px rgba(0, 0, 0, .5));
 	--shadow-lg: light-dark(0 8px 30px rgba(41, 37, 36, .10), 0 8px 30px rgba(0, 0, 0, .55));
 
@@ -68,6 +71,47 @@ img { max-width: 100%; }
 	padding-inline: 20px;
 }
 .stack > * + * { margin-top: 16px; }
+
+/* ---- Demo banner ------------------------------------------ */
+/* Full-bleed amber strip pinned above the topbar. Dismissed state is written
+   by demo-banner.js as [data-demo-dismissed] on <html>, before first paint. */
+.demo-banner {
+	position: sticky;
+	top: 0;
+	z-index: 30;
+	/* Opaque, so page content scrolling underneath doesn't show through */
+	background: color-mix(in srgb, var(--warn) 14%, var(--bg));
+	border-bottom: 1px solid var(--warn);
+}
+.demo-banner[hidden],
+:root[data-demo-dismissed] .demo-banner { display: none; }
+.demo-banner-inner {
+	max-width: 1080px;
+	margin-inline: auto;
+	padding: 8px 20px;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+.demo-banner-icon { color: var(--warn); font-size: 14px; line-height: 1; flex: none; }
+.demo-banner-text {
+	flex: 1;
+	min-width: 0;
+	font-family: var(--font-mono);
+	font-size: 12.5px;
+	line-height: 1.45;
+	color: var(--text);
+}
+.demo-banner-close { width: 30px; height: 30px; font-size: 14px; flex: none; }
+.demo-banner-close:hover { color: var(--warn); background: var(--warn-soft); }
+
+/* Phones: keep the strip to a couple of lines — drop the secondary sentence. */
+@media (max-width: 680px) {
+	.demo-banner-inner { padding: 7px 16px; gap: 8px; }
+	.demo-banner-text { font-size: 11.5px; }
+	.demo-banner-note { display: none; }
+	.demo-banner-close { width: 28px; height: 28px; }
+}
 
 /* ---- Top bar / header ------------------------------------- */
 .topbar {
@@ -360,8 +404,15 @@ input::placeholder, textarea::placeholder { color: var(--muted); }
 }
 
 /* Auth (index) layout */
+/* The page is a flex column so .auth-wrap fills whatever height the demo
+   banner leaves over — keeps the cards centred without forcing a scrollbar. */
+.auth-body {
+	display: flex;
+	flex-direction: column;
+	min-height: 100svh;
+}
+.auth-body .auth-wrap { flex: 1; min-height: 0; }
 .auth-wrap {
-	min-height: calc(100vh - 0px);
 	display: flex;
 	flex-direction: column;
 	align-items: center;
